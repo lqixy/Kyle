@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.DependencyScrutor", "K
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.EntityFrameworkExtensions", "Kyle.EntityFrameworkExtensions\Kyle.EntityFrameworkExtensions.csproj", "{6CA235F5-4E16-4CAF-A8D0-E3AB45BAD3F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.DapperFrameworkExtensions", "Kyle.DapperFrameworkExtensions\Kyle.DapperFrameworkExtensions.csproj", "{4D1794AC-2B4A-45E7-A453-F1B5796D9B13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{6CA235F5-4E16-4CAF-A8D0-E3AB45BAD3F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CA235F5-4E16-4CAF-A8D0-E3AB45BAD3F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CA235F5-4E16-4CAF-A8D0-E3AB45BAD3F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D1794AC-2B4A-45E7-A453-F1B5796D9B13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D1794AC-2B4A-45E7-A453-F1B5796D9B13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D1794AC-2B4A-45E7-A453-F1B5796D9B13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D1794AC-2B4A-45E7-A453-F1B5796D9B13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,6 +99,7 @@ Global
 		{9AD29E87-2DF5-496F-9B88-AEB58B386FE2} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 		{0F7DEC80-856A-4DCA-A190-7B7BE4E11475} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 		{6CA235F5-4E16-4CAF-A8D0-E3AB45BAD3F2} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
+		{4D1794AC-2B4A-45E7-A453-F1B5796D9B13} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12AFE152-B9ED-4907-A6BD-14953312D61B}
