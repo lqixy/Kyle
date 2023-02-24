@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Members.Domain", "Kyle
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Members.DapperFramework", "Kyle.Members.DapperFramework\Kyle.Members.DapperFramework.csproj", "{07E61BA5-6F2F-410A-82CA-04A13C711278}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Extensions", "Kyle.Extensions\Kyle.Extensions.csproj", "{9AD29E87-2DF5-496F-9B88-AEB58B386FE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{07E61BA5-6F2F-410A-82CA-04A13C711278}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07E61BA5-6F2F-410A-82CA-04A13C711278}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07E61BA5-6F2F-410A-82CA-04A13C711278}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AD29E87-2DF5-496F-9B88-AEB58B386FE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AD29E87-2DF5-496F-9B88-AEB58B386FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AD29E87-2DF5-496F-9B88-AEB58B386FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AD29E87-2DF5-496F-9B88-AEB58B386FE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 		{AD80EA4E-FD00-47C4-9E70-074E03D12A3D} = {35B4F2B5-C1C7-4118-86F6-E74DA50819D5}
 		{8DBD49E8-75C9-4343-A8CE-C4BA94A8F7BC} = {35B4F2B5-C1C7-4118-86F6-E74DA50819D5}
 		{07E61BA5-6F2F-410A-82CA-04A13C711278} = {35B4F2B5-C1C7-4118-86F6-E74DA50819D5}
+		{9AD29E87-2DF5-496F-9B88-AEB58B386FE2} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12AFE152-B9ED-4907-A6BD-14953312D61B}

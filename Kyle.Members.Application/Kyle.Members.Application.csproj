@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Kyle.Members.Application.Constructs\Kyle.Members.Application.Constructs.csproj" />
+    <ProjectReference Include="..\Kyle.Members.Domain\Kyle.Members.Domain.csproj" />
   </ItemGroup>
 
 </Project>
