@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.AuthServer", "Kyle.Aut
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "o.Host", "o.Host", "{21D8411B-6031-493B-96B2-3136A89F30D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Mall", "Kyle.Mall\Kyle.Mall.csproj", "{9DCC76C9-5E56-437C-84E4-CBAE74CB6ADD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{3D508119-0CB6-4D2C-9BB7-C92850446875}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,17 @@ Global
 		{0B23A4FE-8536-4E16-8C13-D445F861FABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B23A4FE-8536-4E16-8C13-D445F861FABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B23A4FE-8536-4E16-8C13-D445F861FABA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DCC76C9-5E56-437C-84E4-CBAE74CB6ADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DCC76C9-5E56-437C-84E4-CBAE74CB6ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DCC76C9-5E56-437C-84E4-CBAE74CB6ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DCC76C9-5E56-437C-84E4-CBAE74CB6ADD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0B23A4FE-8536-4E16-8C13-D445F861FABA} = {21D8411B-6031-493B-96B2-3136A89F30D8}
+		{9DCC76C9-5E56-437C-84E4-CBAE74CB6ADD} = {21D8411B-6031-493B-96B2-3136A89F30D8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12AFE152-B9ED-4907-A6BD-14953312D61B}
