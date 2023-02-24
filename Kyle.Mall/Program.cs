@@ -1,3 +1,4 @@
+using Kyle.Infrastructure.ConsulFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,5 +35,9 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapGet("/health/check", () => Results.Ok());
+
+app.UseConsul(builder.Configuration);
 
 app.Run();

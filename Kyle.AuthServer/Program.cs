@@ -1,4 +1,5 @@
 using Kyle.AuthServer;
+using Kyle.Infrastructure.ConsulFramework;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,5 +16,8 @@ var app = builder.Build();
 
 app.UseIdentityServer();
 //app.MapGet("/", () => "Hello World!");
+app.MapGet("/health/check", () => Results.Ok());
+
+app.UseConsul(builder.Configuration);
 
 app.Run();
