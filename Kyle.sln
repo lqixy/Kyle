@@ -17,15 +17,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "context", "context", "{3D54
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Members", "Members", "{35B4F2B5-C1C7-4118-86F6-E74DA50819D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Members.Application.Constructs", "Kyle.Members.Application.Constructs\Kyle.Members.Application.Constructs.csproj", "{0418803D-7F4D-4D6E-877F-4CFE4AAEADF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Members.Application.Constructs", "Kyle.Members.Application.Constructs\Kyle.Members.Application.Constructs.csproj", "{0418803D-7F4D-4D6E-877F-4CFE4AAEADF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Members.Application", "Kyle.Members.Application\Kyle.Members.Application.csproj", "{AD80EA4E-FD00-47C4-9E70-074E03D12A3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Members.Application", "Kyle.Members.Application\Kyle.Members.Application.csproj", "{AD80EA4E-FD00-47C4-9E70-074E03D12A3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Members.Domain", "Kyle.Members.Domain\Kyle.Members.Domain.csproj", "{8DBD49E8-75C9-4343-A8CE-C4BA94A8F7BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Members.Domain", "Kyle.Members.Domain\Kyle.Members.Domain.csproj", "{8DBD49E8-75C9-4343-A8CE-C4BA94A8F7BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Members.DapperFramework", "Kyle.Members.DapperFramework\Kyle.Members.DapperFramework.csproj", "{07E61BA5-6F2F-410A-82CA-04A13C711278}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Members.DapperFramework", "Kyle.Members.DapperFramework\Kyle.Members.DapperFramework.csproj", "{07E61BA5-6F2F-410A-82CA-04A13C711278}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Extensions", "Kyle.Extensions\Kyle.Extensions.csproj", "{9AD29E87-2DF5-496F-9B88-AEB58B386FE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Extensions", "Kyle.Extensions\Kyle.Extensions.csproj", "{9AD29E87-2DF5-496F-9B88-AEB58B386FE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.DependencyScrutor", "Kyle.DependencyScrutor\Kyle.DependencyScrutor.csproj", "{0F7DEC80-856A-4DCA-A190-7B7BE4E11475}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{9AD29E87-2DF5-496F-9B88-AEB58B386FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AD29E87-2DF5-496F-9B88-AEB58B386FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AD29E87-2DF5-496F-9B88-AEB58B386FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F7DEC80-856A-4DCA-A190-7B7BE4E11475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F7DEC80-856A-4DCA-A190-7B7BE4E11475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F7DEC80-856A-4DCA-A190-7B7BE4E11475}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F7DEC80-856A-4DCA-A190-7B7BE4E11475}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{8DBD49E8-75C9-4343-A8CE-C4BA94A8F7BC} = {35B4F2B5-C1C7-4118-86F6-E74DA50819D5}
 		{07E61BA5-6F2F-410A-82CA-04A13C711278} = {35B4F2B5-C1C7-4118-86F6-E74DA50819D5}
 		{9AD29E87-2DF5-496F-9B88-AEB58B386FE2} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
+		{0F7DEC80-856A-4DCA-A190-7B7BE4E11475} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12AFE152-B9ED-4907-A6BD-14953312D61B}

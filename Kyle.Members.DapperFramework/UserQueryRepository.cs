@@ -9,9 +9,10 @@ namespace Kyle.Members.DapperFramework
 {
     public class UserQueryRepository : IUserQueryRepository
     {
-        public Task<UserInfo> Get()
+        public async Task<UserInfo> Get()
         {
-            return new Task<UserInfo>(() => new UserInfo());
+            //return new Task<UserInfo>(() => new UserInfo());
+            return new UserInfo();
         }
     }
 }

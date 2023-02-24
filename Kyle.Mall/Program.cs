@@ -1,3 +1,4 @@
+using Kyle.DependencyScrutor;
 using Kyle.Infrastructure.ConsulFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
@@ -20,6 +21,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.SupportedTokens = IdentityServer4.AccessTokenValidation.SupportedTokens.Both;
     })
     ;
+
+builder.Services.AddScrutor();
 
 var app = builder.Build();
 
