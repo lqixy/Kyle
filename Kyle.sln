@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Members.DapperFramewor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Extensions", "Kyle.Extensions\Kyle.Extensions.csproj", "{9AD29E87-2DF5-496F-9B88-AEB58B386FE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.DependencyScrutor", "Kyle.DependencyScrutor\Kyle.DependencyScrutor.csproj", "{0F7DEC80-856A-4DCA-A190-7B7BE4E11475}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.DependencyScrutor", "Kyle.DependencyScrutor\Kyle.DependencyScrutor.csproj", "{0F7DEC80-856A-4DCA-A190-7B7BE4E11475}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.EntityFrameworkExtensions", "Kyle.EntityFrameworkExtensions\Kyle.EntityFrameworkExtensions.csproj", "{6CA235F5-4E16-4CAF-A8D0-E3AB45BAD3F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{0F7DEC80-856A-4DCA-A190-7B7BE4E11475}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F7DEC80-856A-4DCA-A190-7B7BE4E11475}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F7DEC80-856A-4DCA-A190-7B7BE4E11475}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CA235F5-4E16-4CAF-A8D0-E3AB45BAD3F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CA235F5-4E16-4CAF-A8D0-E3AB45BAD3F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CA235F5-4E16-4CAF-A8D0-E3AB45BAD3F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CA235F5-4E16-4CAF-A8D0-E3AB45BAD3F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +92,7 @@ Global
 		{07E61BA5-6F2F-410A-82CA-04A13C711278} = {35B4F2B5-C1C7-4118-86F6-E74DA50819D5}
 		{9AD29E87-2DF5-496F-9B88-AEB58B386FE2} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 		{0F7DEC80-856A-4DCA-A190-7B7BE4E11475} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
+		{6CA235F5-4E16-4CAF-A8D0-E3AB45BAD3F2} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12AFE152-B9ED-4907-A6BD-14953312D61B}
