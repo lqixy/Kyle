@@ -1,7 +1,10 @@
 using Kyle.DependencyScrutor;
+using Kyle.DependencyAutofac;
 using Kyle.Infrastructure.ConsulFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Kyle.DapperFrameworkExtensions;
+using Autofac.Extensions.DependencyInjection;
+using Autofac;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +26,15 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     })
     ;
 
-builder.Services.AddScrutor();
+//builder.Services.AddScrutor();
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
+    .ConfigureContainer<ContainerBuilder>(x =>
+    {
+        builder.Services.AddAutofac(x);
+        //x.RegisterModule(new DapperModule());
+    })
+    ;
 
 builder.Services.AddDapper();
 

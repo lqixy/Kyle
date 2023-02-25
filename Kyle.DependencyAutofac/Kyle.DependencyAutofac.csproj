@@ -7,9 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Kyle.DapperFrameworkExtensions\Kyle.DapperFrameworkExtensions.csproj" />
+    <PackageReference Include="Autofac" Version="6.5.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Kyle.Extensions\Kyle.Extensions.csproj" />
-    <ProjectReference Include="..\Kyle.Members.Domain\Kyle.Members.Domain.csproj" />
   </ItemGroup>
 
 </Project>

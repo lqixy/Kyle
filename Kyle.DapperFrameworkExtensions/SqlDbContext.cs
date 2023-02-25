@@ -17,9 +17,13 @@ namespace Kyle.DapperFrameworkExtensions
             this.connectionStringResolver = connectionStringResolver;
         }
 
-        public IDbConnection CreateConnection()
+        public IDbConnection CreateConnection(string? name = null)
         {
-            return new SqlConnection(connectionStringResolver.GetConnectionString(string.Empty));
+            return new SqlConnection(connectionStringResolver.GetConnectionString(name));
         }
+        //public IDbConnection CreateConnection(string name)
+        //{
+        //    return new SqlConnection(connectionStringResolver.GetConnectionString(name));
+        //}
     }
 }

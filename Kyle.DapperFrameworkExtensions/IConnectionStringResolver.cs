@@ -9,7 +9,7 @@ namespace Kyle.DapperFrameworkExtensions
 {
     public interface IConnectionStringResolver
     {
-        string GetConnectionString(string name);
+        string GetConnectionString(string? name);
     }
 
     public class DefaultConnectionStringResolver : IConnectionStringResolver
@@ -21,7 +21,7 @@ namespace Kyle.DapperFrameworkExtensions
             _configuration = configuration;
         }
 
-        public string GetConnectionString(string name)
+        public string GetConnectionString(string? name)
         {
             if (string.IsNullOrWhiteSpace(name)) name = "Default";
 
