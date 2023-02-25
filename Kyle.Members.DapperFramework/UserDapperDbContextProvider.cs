@@ -11,30 +11,30 @@ using System.Threading.Tasks;
 
 namespace Kyle.Members.DapperFramework
 {
-    public class UserDapperDbContextProvider : DapperDbContextProvider
-    {
-        //public UserDapperDbContextProvider(IDbConnection dbContext, UserSqlServerDbProviderFactory factory) : base(dbContext, factory)
-        //{
-        //}
-        public UserDapperDbContextProvider(IDatabase dbContext, UserSqlServerDbProviderFactory factory) : base(dbContext, factory)
-        {
-        }
-    }
+    //public class UserDapperDbContextProvider : DapperDbContextProvider
+    //{
+    //    //public UserDapperDbContextProvider(IDbConnection dbContext, UserSqlServerDbProviderFactory factory) : base(dbContext, factory)
+    //    //{
+    //    //}
+    //    public UserDapperDbContextProvider(IDatabase dbContext, UserSqlServerDbProviderFactory factory) : base(dbContext, factory)
+    //    {
+    //    }
+    //}
 
-    public class UserSqlServerDbProviderFactory : IDbProviderFactory, ISingletonDependency
-    {
-        public static string Name;
+    //public class UserSqlServerDbProviderFactory : IDbProviderFactory, ISingletonDependency
+    //{
+    //    public static string Name;
 
-        private readonly IConnectionStringResolver _connectionStringResolver;
+    //    private readonly IConnectionStringResolver _connectionStringResolver;
 
-        public UserSqlServerDbProviderFactory(IConnectionStringResolver connectionStringResolver)
-        {
-            _connectionStringResolver = connectionStringResolver;
-        }
+    //    public UserSqlServerDbProviderFactory(IConnectionStringResolver connectionStringResolver)
+    //    {
+    //        _connectionStringResolver = connectionStringResolver;
+    //    }
 
-        public string ConnectionString => _connectionStringResolver.GetConnectionString(Name);
+    //    public string ConnectionString => _connectionStringResolver.GetConnectionString(Name);
 
-        public DbProviderFactory DbFactory => SqlClientFactory.Instance;
+    //    public DbProviderFactory DbFactory => SqlClientFactory.Instance;
 
-    }
+    //}
 }
