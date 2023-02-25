@@ -8,9 +8,12 @@ namespace Kyle.Members.Domain
 {
     public class UserInfo
     {
-        public Guid UserId { get; set; } = Guid.NewGuid();
+        public Guid UserId { get; set; }
 
+        public Guid TenantId { get; set; }
 
-        public DateTime CreationTime { get; set; } = DateTime.Now;
+        public DateTime RegDate { get; set; }
+
+        //public DateTime CreationTime { get; set; } = DateTime.Now;
     }
 }

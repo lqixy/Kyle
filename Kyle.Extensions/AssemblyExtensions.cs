@@ -17,5 +17,13 @@ namespace Kyle.Extensions
                 .Where(x => !x.Serviceable && x.Type != "package")
                 .Select(x => AssemblyLoadContext.Default.LoadFromAssemblyName(new AssemblyName(x.Name))).ToArray();
         }
+
+        //public static Assembly[] GetAssemblies(Type type)
+        //{
+        //    return DependencyContext.Default.CompileLibraries
+        //        .Where(x => !x.Serviceable && x.Type != "package")
+        //        .WhereIf(type != null, x => x == type)
+        //        .Select(x => AssemblyLoadContext.Default.LoadFromAssemblyName(new AssemblyName(x.Name))).ToArray();
+        //}
     }
 }

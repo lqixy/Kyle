@@ -17,7 +17,12 @@ namespace Kyle.DependencyScrutor
                 selector.FromAssemblies(AssemblyExtensions.GetAssemblies())
                 .AddClasses(c => c.Where(x => x.Name.EndsWith("AppService") || x.Name.EndsWith("Repository")))
                 .AsImplementedInterfaces().WithSingletonLifetime()
-                
+                .FromAssemblyOf<ITransientDependency>()
+                .AddClasses(c => c.AssignableTo<ITransientDependency>())
+                .AsImplementedInterfaces().WithTransientLifetime()
+                .FromAssemblyOf<ISingletonDependency>()
+                .AddClasses(c => c.AssignableTo<ISingletonDependency>())
+                .AsImplementedInterfaces().WithSingletonLifetime();
                 ;
             });
         }

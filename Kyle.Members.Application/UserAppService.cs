@@ -19,7 +19,7 @@ namespace Kyle.Members.Application
         public async Task<UserInfoDto> Get()
         {
             var entity = await repository.Get();
-            return new UserInfoDto(entity.UserId, entity.CreationTime);
+            return new UserInfoDto(entity.UserId, entity.TenantId, entity.RegDate);
         }
     }
 }

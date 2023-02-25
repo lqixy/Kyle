@@ -12,15 +12,17 @@ namespace Kyle.Members.Application.Constructs
         {
         }
 
-        public UserInfoDto(Guid userId, DateTime creationTime)
+        public UserInfoDto(Guid userId, Guid tenantId, DateTime regDate)
         {
             UserId = userId;
-            CreationTime = creationTime;
+            TenantId = tenantId;
+            RegDate = regDate;
         }
 
-        public Guid UserId { get; set; } 
+        public Guid UserId { get; set; }
 
+        public Guid TenantId { get; set; }
 
-        public DateTime CreationTime { get; set; }
+        public DateTime RegDate { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 using Kyle.DependencyScrutor;
 using Kyle.Infrastructure.ConsulFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Kyle.DapperFrameworkExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     ;
 
 builder.Services.AddScrutor();
+
+builder.Services.AddDapper();
 
 var app = builder.Build();
 
