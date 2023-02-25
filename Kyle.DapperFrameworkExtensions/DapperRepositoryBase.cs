@@ -18,13 +18,13 @@ namespace Kyle.DapperFrameworkExtensions
         //    _dbContextProviderDbContext = dbContextProviderDbContext;
         //}
 
-        public IDbConnection DB => sqlDbContext.CreateConnection(dbName);
+        public IDbConnection DB => dbContext.CreateConnection(dbName);
         private readonly string? dbName;
-        private readonly SqlDbContext sqlDbContext;
+        private readonly IDapperDbContext dbContext;
 
-        public DapperRepositoryBase(SqlDbContext sqlDbContext, string? dbName = null)
+        public DapperRepositoryBase(IDapperDbContext dbContext, string? dbName = null)
         {
-            this.sqlDbContext = sqlDbContext;
+            this.dbContext = dbContext;
             this.dbName = dbName;
         }
 

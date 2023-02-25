@@ -20,6 +20,7 @@ namespace Kyle.DapperFrameworkExtensions
                 .AddSingleton<IDbProviderFactory, SqlServerDbProviderFactory>()
                 .AddSingleton<IDatabase, Database>()
                 .AddSingleton<SqlDbContext>()
+                .AddSingleton<MySqlDbContext>()
                 //.AddTransient<IDbContextProvider, DapperDbContextProvider>()                
                 //.AddSingleton<DapperDbContextProvider>()
                 //.AddTransient(typeof(IDbContextProvider<>), typeof(DapperDbContextProvider<>))

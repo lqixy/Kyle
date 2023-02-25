@@ -12,13 +12,13 @@ namespace Kyle.Members.DapperFramework
 {
     public class UserTestQueryService : DapperRepositoryBase, IUserTestQueryService, ISingletonDependency
     {
-        public UserTestQueryService(SqlDbContext sqlDbContext) : base(sqlDbContext, "")
+        public UserTestQueryService(MySqlDbContext sqlDbContext) : base(sqlDbContext, "")
         {
         }
 
         public async Task<UserInfo> Get()
         {
-            return await DB.QueryFirstAsync<UserInfo>("select top 1 * from UserBaseInfo");
+            return await DB.QueryFirstAsync<UserInfo>("select * from UserBaseInfo");
         }
     }
 }
