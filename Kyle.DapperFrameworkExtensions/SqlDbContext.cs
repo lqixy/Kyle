@@ -28,23 +28,9 @@ namespace Kyle.DapperFrameworkExtensions
         //}
     }
 
-    public interface IDapperDbContext
-    {
-        IDbConnection CreateConnection(string? name);
-    }
-
-    public class MySqlDbContext: IDapperDbContext
-    {
-        private readonly IConnectionStringResolver connectionStringResolver1;
-
-        public MySqlDbContext(IConnectionStringResolver connectionStringResolver1)
-        {
-            this.connectionStringResolver1 = connectionStringResolver1;
-        }
-
-        public IDbConnection CreateConnection(string? name = null)
-        {
-            return new MySqlConnection(connectionStringResolver1.GetConnectionString(name));
-        }
-    }
+    // public interface IDapperDbContext
+    // {
+    //     IDbConnection CreateConnection(string? name);
+    // }
+   
 }
