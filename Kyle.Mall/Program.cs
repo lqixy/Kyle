@@ -5,15 +5,18 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Kyle.DapperFrameworkExtensions;
 using Autofac.Extensions.DependencyInjection;
 using Autofac;
-
+using Kyle.LoggerSerilog; 
+ 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container. 
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+ 
+builder.AddSerilogLogger();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddIdentityServerAuthentication(options =>
@@ -31,8 +34,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .ConfigureContainer<ContainerBuilder>(x =>
     {
-        builder.Services.AddAutofac(x);
-        //x.RegisterModule(new DapperModule());
+        builder.Services.AddAutofac(x); 
     })
     ;
 
