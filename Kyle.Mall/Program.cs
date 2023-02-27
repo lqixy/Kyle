@@ -7,6 +7,7 @@ using Autofac.Extensions.DependencyInjection;
 using Autofac;
 using Kyle.LoggerSerilog;
 using Kyle.Mall.Middlewares;
+using Kyle.Infrastructure.RedisExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,6 +42,8 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     ;
 
 builder.Services.AddDapper();
+
+builder.Services.AddRedisService(builder.Configuration);
 
 var app = builder.Build();
 

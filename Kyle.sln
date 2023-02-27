@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.DependencyAutofac", "K
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.LoggerSerilog", "Kyle.LoggerSerilog\Kyle.LoggerSerilog.csproj", "{B3B2DAAB-E95E-4B6F-9AF6-6E55D062F208}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Infrastructure.RedisExtensions", "Kyle.Infrastructure.RedisExtensions\Kyle.Infrastructure.RedisExtensions.csproj", "{17677834-20F2-4BA6-A5FE-5486E7775481}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,10 @@ Global
 		{B3B2DAAB-E95E-4B6F-9AF6-6E55D062F208}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3B2DAAB-E95E-4B6F-9AF6-6E55D062F208}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3B2DAAB-E95E-4B6F-9AF6-6E55D062F208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17677834-20F2-4BA6-A5FE-5486E7775481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17677834-20F2-4BA6-A5FE-5486E7775481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17677834-20F2-4BA6-A5FE-5486E7775481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17677834-20F2-4BA6-A5FE-5486E7775481}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,6 +120,7 @@ Global
 		{4D1794AC-2B4A-45E7-A453-F1B5796D9B13} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 		{C9207159-1B94-4342-926A-F1E24C03C358} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 		{B3B2DAAB-E95E-4B6F-9AF6-6E55D062F208} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
+		{17677834-20F2-4BA6-A5FE-5486E7775481} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12AFE152-B9ED-4907-A6BD-14953312D61B}

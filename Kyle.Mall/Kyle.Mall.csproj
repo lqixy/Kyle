@@ -16,8 +16,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Kyle.DependencyAutofac\Kyle.DependencyAutofac.csproj" />
-    <ProjectReference Include="..\Kyle.DependencyScrutor\Kyle.DependencyScrutor.csproj" />
     <ProjectReference Include="..\Kyle.Infrastructure.ConsulFramework\Kyle.Infrastructure.ConsulFramework.csproj" />
+    <ProjectReference Include="..\Kyle.Infrastructure.RedisExtensions\Kyle.Infrastructure.RedisExtensions.csproj" />
     <ProjectReference Include="..\Kyle.LoggerSerilog\Kyle.LoggerSerilog.csproj" />
     <ProjectReference Include="..\Kyle.Members.Application\Kyle.Members.Application.csproj" />
     <ProjectReference Include="..\Kyle.Members.DapperFramework\Kyle.Members.DapperFramework.csproj" />

@@ -1,6 +1,7 @@
 ﻿using Kyle.Members.Application.Constructs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace Kyle.Mall.Controllers
 {
@@ -10,15 +11,17 @@ namespace Kyle.Mall.Controllers
     {
         private readonly IUserAppService appService;
         private readonly ILogger<UserController> logger;
-        public UserController(IUserAppService appService, ILogger<UserController> logger)
+        private readonly IDistributedCache _cache;
+        public UserController(IUserAppService appService, ILogger<UserController> logger, IDistributedCache cache)
         {
             this.appService = appService;
             this.logger = logger;
+            _cache = cache;
         }
 
         [HttpGet("get")]
         public async Task<IActionResult> Get()
-        {
+        { 
             var dto = await appService.Get();
             logger.LogError("Test Error");
             logger.LogDebug("Test Debug");
