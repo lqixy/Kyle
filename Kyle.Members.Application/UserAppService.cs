@@ -10,18 +10,15 @@ namespace Kyle.Members.Application
 {
     public class UserAppService : IUserAppService
     {
-        private readonly IUserQueryRepository repository;
-        private readonly IUserTestQueryService testQueryService;
-        public UserAppService(IUserQueryRepository repository, IUserTestQueryService testQueryService)
+        private readonly IUserQueryRepository repository; 
+        public UserAppService(IUserQueryRepository repository)
         {
-            this.repository = repository;
-            this.testQueryService = testQueryService;
+            this.repository = repository; 
         }
 
         public async Task<UserInfoDto> Get()
         {
-            var entity = await repository.Get();
-            var t = await testQueryService.Get();
+            var entity = await repository.Get(); 
             return new UserInfoDto(entity.UserId, entity.TenantId, entity.RegDate);
         }
     }

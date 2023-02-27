@@ -11,13 +11,13 @@ namespace Kyle.Members.DapperFramework
 {
     public class UserQueryRepository : DapperRepositoryBase, IUserQueryRepository
     {
-        public UserQueryRepository(MySqlDbContext sqlDbContext) : base(sqlDbContext)
+        public UserQueryRepository(SqlDbContext sqlDbContext) : base(sqlDbContext)
         {
         }
 
         public async Task<UserInfo> Get()
         {
-            var sql = "select * from UserBaseinfo ";
+            var sql = "select top 1 * from UserBaseinfo ";
 
             //var result = await DB.Connection.QueryFirstAsync<UserInfo>(sql);
             var result = await DB.QueryFirstAsync<UserInfo>(sql);
