@@ -1,27 +1,21 @@
 ﻿using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kyle.DapperFrameworkExtensions
 {
-    public class SqlDbContext:IDapperDbContext
+    public class MySqlDbContext : IDapperDbContext
     {
         private readonly IConnectionStringResolver connectionStringResolver;
 
-        public SqlDbContext(IConnectionStringResolver connectionStringResolver)
+        public MySqlDbContext(IConnectionStringResolver connectionStringResolver)
         {
             this.connectionStringResolver = connectionStringResolver;
         }
 
         public IDbConnection CreateConnection(string? name = null)
         {
-            return new SqlConnection(connectionStringResolver.GetConnectionString(name));
-        } 
+            return new MySqlConnection(connectionStringResolver.GetConnectionString(name));
+        }
     }
-     
 }

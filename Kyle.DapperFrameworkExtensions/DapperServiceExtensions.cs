@@ -21,18 +21,7 @@ namespace Kyle.DapperFrameworkExtensions
                 .AddSingleton<IDatabase, Database>()
                 .AddSingleton<SqlDbContext>()
                 .AddSingleton<MySqlDbContext>()
-                //.AddTransient<IDbContextProvider, DapperDbContextProvider>()                
-                //.AddSingleton<DapperDbContextProvider>()
-                //.AddTransient(typeof(IDbContextProvider<>), typeof(DapperDbContextProvider<>))
-                //.AddTransient(typeof(IDbContextProvider<>))
-
                 ;
         }
-
-        //private static void AddClassesAsImplementedInterface(Type t)
-        //{
-        //    Extensions.AssemblyExtensions.GetAssemblies()
-        //        .Where(x => x.)
-        //}
     }
 }
