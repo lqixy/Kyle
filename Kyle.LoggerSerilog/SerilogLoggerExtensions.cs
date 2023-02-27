@@ -22,6 +22,9 @@ namespace Kyle.LoggerSerilog
             builder.Host.UseSerilog((hostContext, services, configuration) =>
             {
                 configuration.ReadFrom.Configuration(builder.Configuration)
+                .ReadFrom.Services(services)
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
                 ;
             });
 

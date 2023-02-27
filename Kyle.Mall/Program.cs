@@ -5,17 +5,19 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Kyle.DapperFrameworkExtensions;
 using Autofac.Extensions.DependencyInjection;
 using Autofac;
-using Kyle.LoggerSerilog; 
- 
+using Kyle.LoggerSerilog;
+using Kyle.Mall.Middlewares;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container. 
+builder.Services.AddTransient<CustomApiFilterMiddleware>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
- 
+
 builder.AddSerilogLogger();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -34,7 +36,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .ConfigureContainer<ContainerBuilder>(x =>
     {
-        builder.Services.AddAutofac(x); 
+        builder.Services.AddAutofac(x);
     })
     ;
 
@@ -56,6 +58,11 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapGet("/health/check", () => Results.Ok());
+
+app.UseWhen(context => context.Request.Path.StartsWithSegments("/api/test"), appBuilde =>
+{
+    appBuilde.UseMiddleware<CustomApiFilterMiddleware>();
+});
 
 app.UseConsul(builder.Configuration);
 
