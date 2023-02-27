@@ -23,5 +23,5 @@ namespace Kyle.DapperFrameworkExtensions
             return new SqlConnection(connectionStringResolver.GetConnectionString(name));
         } 
     }
-     
+
 }
