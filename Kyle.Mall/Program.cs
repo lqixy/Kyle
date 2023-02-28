@@ -1,4 +1,3 @@
-using Kyle.DependencyScrutor;
 using Kyle.DependencyAutofac;
 using Kyle.Infrastructure.ConsulFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
