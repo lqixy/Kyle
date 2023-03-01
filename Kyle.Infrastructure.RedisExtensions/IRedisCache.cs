@@ -14,10 +14,6 @@ namespace Kyle.Infrastructure.RedisExtensions
     {
         IDatabase Database { get; }
 
-        //TimeSpan DefaultSlidingExpireTime { get; }
-
-        //DateTimeOffset? DefaultAbsoluteExpireTime { get; }
-
         bool Exists(string key);
         Task<bool> ExistsAsync(string key);
         TimeSpan? GetExpiration(string key);
@@ -69,14 +65,14 @@ namespace Kyle.Infrastructure.RedisExtensions
 
         public bool TryGetValue(string key, out object value)
         {
-            var redisValue = _database.StringGet(key);
+            var redisValue = _database.StringGet(GetLocalizeKey(key));
             value = redisValue.HasValue ? JsonConvert.DeserializeObject(redisValue) : null;
             return redisValue.HasValue;
         }
 
         public object GetOrDefault(string key)
         {
-            var obj = _database.StringGet(key);
+            var obj = _database.StringGet(GetLocalizeKey(key));
             if (obj.HasValue)
             {
                 return JsonConvert.DeserializeObject(obj);
@@ -87,33 +83,34 @@ namespace Kyle.Infrastructure.RedisExtensions
         public void Set(string key, object value, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null)
         {
             if (value == null) throw new KyleException("Can not insert null values to the cache!");
+            var redisKey = GetLocalizeKey(key);
             var redisValue = JsonConvert.SerializeObject(value);
             if (absoluteExpireTime.HasValue)
             {
-                if (!_database.StringSet(key, redisValue)) { }
+                if (!_database.StringSet(redisKey, redisValue)) { }
                     //_logger.LogError($"Unable to set key:{key} value:{redisValue} in redis");
-                else if (!_database.KeyExpire(key, absoluteExpireTime.Value.UtcDateTime)) { }
+                else if (!_database.KeyExpire(redisKey, absoluteExpireTime.Value.UtcDateTime)) { }
                     //_logger.LogError($"Unable to set key:{key} to expire at {absoluteExpireTime.Value.UtcDateTime} in Redis");
             }
             else if (slidingExpireTime.HasValue)
             {
-                if (!_database.StringSet(key, redisValue, slidingExpireTime.Value)) { }
+                if (!_database.StringSet(redisKey, redisValue, slidingExpireTime.Value)) { }
                     //_logger.LogError($"Unable to set key:{key} value:{redisValue} to expire after {slidingExpireTime.Value} in Redis");
             }
             else if (DefaultAbsoluteExpireTime.HasValue)
             {
-                if (!_database.StringSet(key, redisValue))
+                if (!_database.StringSet(redisKey, redisValue))
                 {
                     //_logger.LogError("Unable to set key:{0} value:{1} in Redis", key, redisValue);
                 }
-                else if (!_database.KeyExpire(key, DefaultAbsoluteExpireTime.Value.UtcDateTime))
+                else if (!_database.KeyExpire(redisKey, DefaultAbsoluteExpireTime.Value.UtcDateTime))
                 {
                     //_logger.LogError("Unable to set key:{0} to expire at {1:O} in Redis", key, DefaultAbsoluteExpireTime.Value.UtcDateTime);
                 }
             }
             else
             {
-                if (!_database.StringSet(key, redisValue, DefaultSlidingExpireTime))
+                if (!_database.StringSet(redisKey, redisValue, DefaultSlidingExpireTime))
                 {
                     //_logger.LogError("Unable to set key:{0} value:{1} to expire after {2:c} in Redis", key, redisValue, DefaultSlidingExpireTime);
                 }
@@ -123,45 +120,49 @@ namespace Kyle.Infrastructure.RedisExtensions
 
         public void Remove(string key)
         {
-            _database.KeyDeleteAsync(key);
+            _database.KeyDeleteAsync(GetLocalizeKey(key));
         }
         public Task RemoveAsync(string key)
         {
-            Remove(key);
+            Remove(GetLocalizeKey(key));
             return Task.CompletedTask;
         }
 
         public bool Exists(string key)
         {
-            return _database.KeyExists(key);
+            return _database.KeyExists(GetLocalizeKey(key));
         }
 
         public Task<bool> ExistsAsync(string key)
         {
-            return _database.KeyExistsAsync(key);
+            return _database.KeyExistsAsync(GetLocalizeKey(key));
         }
 
         public void SetExpiration(string key, TimeSpan expiration)
         {
-            if (expiration.Ticks < 0) this.Remove(key);
+            if (expiration.Ticks < 0) this.Remove(GetLocalizeKey(key));
             _database.KeyExpire(key, expiration);
         }
 
         public Task SetExpirationAsync(string key, TimeSpan expiration)
         {
-            if (expiration.Ticks < 0) this.RemoveAsync(key);
+            if (expiration.Ticks < 0) this.RemoveAsync(GetLocalizeKey(key));
             return _database.KeyExpireAsync(key, expiration);
         }
 
         public Task<TimeSpan?> GetExpirationAsync(string key)
         {
-            return _database.KeyTimeToLiveAsync(key);
+            return _database.KeyTimeToLiveAsync(GetLocalizeKey(key));
         }
 
         public TimeSpan? GetExpiration(string key)
         {
-            return _database.KeyTimeToLive(key);
+            return _database.KeyTimeToLive(GetLocalizeKey(key));
         }
 
+        private string GetLocalizeKey(string key)
+        {
+            return "Mall:"+key;
+        }
     }
 }

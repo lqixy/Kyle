@@ -23,14 +23,14 @@ var services = new ServiceCollection()
 
 services.AddRedisService();
 
-services.AddSingleton<ITest, Test>();
+// services.AddSingleton<ITest, Test>();
 
-Console.WriteLine(configuration["Redis:ConnectionString"]);
+// Console.WriteLine(configuration["Redis:ConnectionString"]);
 
 var provider = services.BuildServiceProvider();
 
-var t = provider.GetRequiredService<ITest>();
-t.Foo();
+// var t = provider.GetRequiredService<ITest>();
+// t.Foo();
 
 var cache = provider.GetService<IRedisCache>();
 
