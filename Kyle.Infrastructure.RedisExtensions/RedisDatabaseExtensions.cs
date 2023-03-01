@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Kyle.Infrastructure.RedisExtensions
 {
-    public interface ICachingConfiguration
-    {
-    }
+    //public static class RedisDatabaseExtensions
+    //{
+    //    public static void KeyDeleteWith
+    //}
 }
