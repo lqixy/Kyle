@@ -42,7 +42,7 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
 
 builder.Services.AddDapper();
 
-builder.Services.AddRedisService(builder.Configuration);
+builder.Services.AddRedisService();
 
 var app = builder.Build();
 
