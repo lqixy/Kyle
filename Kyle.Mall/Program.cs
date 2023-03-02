@@ -8,6 +8,7 @@ using Kyle.LoggerSerilog;
 using Kyle.Mall.Middlewares;
 using Kyle.Infrastructure.RedisExtensions;
 using Kyle.Mall;
+using Kyle.Mall.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -69,6 +70,7 @@ app.UseWhen(context => context.Request.Path.StartsWithSegments("/api/test"), app
 
 app.UseConsul(builder.Configuration);
 
+//app.UseExceptionHandling();
 app.UseResponseWrapper();
 
 app.Run();

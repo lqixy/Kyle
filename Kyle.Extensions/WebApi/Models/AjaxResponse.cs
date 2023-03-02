@@ -18,6 +18,11 @@ namespace Kyle.Extensions.WebApi.Models
 
         public string Message { get; private set; } = "成功";
 
+        public void SetMessage(string message)
+        {
+            this.Message = message;
+        }
+
         public AjaxResponse(TResult result)
         {
             Data = result;
