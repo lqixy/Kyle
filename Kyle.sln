@@ -45,6 +45,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.RedisDemo", "Kyle.Redi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.DIDemo", "Kyle.DIDemo\Kyle.DIDemo.csproj", "{C25BC86B-B03E-4665-9A47-CAD10CDF876F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Gateway", "Kyle.Gateway\Kyle.Gateway.csproj", "{3F63D800-1CFD-4023-BD01-DE13B8631962}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +117,10 @@ Global
 		{C25BC86B-B03E-4665-9A47-CAD10CDF876F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C25BC86B-B03E-4665-9A47-CAD10CDF876F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C25BC86B-B03E-4665-9A47-CAD10CDF876F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F63D800-1CFD-4023-BD01-DE13B8631962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F63D800-1CFD-4023-BD01-DE13B8631962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F63D800-1CFD-4023-BD01-DE13B8631962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F63D800-1CFD-4023-BD01-DE13B8631962}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -137,6 +143,7 @@ Global
 		{17677834-20F2-4BA6-A5FE-5486E7775481} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 		{90619599-738B-420C-BD24-E0F275865BBD} = {AA545146-2828-42AD-9B7B-B7BFB232FB51}
 		{C25BC86B-B03E-4665-9A47-CAD10CDF876F} = {AA545146-2828-42AD-9B7B-B7BFB232FB51}
+		{3F63D800-1CFD-4023-BD01-DE13B8631962} = {21D8411B-6031-493B-96B2-3136A89F30D8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12AFE152-B9ED-4907-A6BD-14953312D61B}

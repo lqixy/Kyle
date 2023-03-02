@@ -1,6 +1,5 @@
 ﻿using Kyle.Extensions.Exceptions;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
@@ -33,28 +32,18 @@ namespace Kyle.Infrastructure.RedisExtensions
     {
         private readonly IDatabase _database;
         private readonly ILogger _logger;
+        private readonly IRedisCacheSerializer _redisCacheSerializer;
+
         public IDatabase Database { get { return _database; } }
 
         private TimeSpan DefaultSlidingExpireTime { get; }
 
         private DateTimeOffset? DefaultAbsoluteExpireTime { get; }
-        //private TimeSpan DefaultSlidingExpireTime => TimeSpan.FromHours(1);
-
-        //private DateTimeOffset? DefaultAbsoluteExpireTime
-        //{
-        //    get
-        //    {
-        //        var now = DateTime.Now.AddDays(1);
-        //        return DateTime.SpecifyKind(now, DateTimeKind.Utc);
-        //    }
-        //}
 
         private readonly IRedisCacheDatabaseProvider _databaseProvider;
 
         public RedisCache(IRedisCacheDatabaseProvider databaseProvider
-            //, ILogger<RedisCache> logger
-            , ILoggerFactory loggerFactory
-            ) : base(loggerFactory)
+            , ILoggerFactory loggerFactory, IRedisCacheSerializer redisCacheSerializer) : base(loggerFactory)
         {
             _logger = loggerFactory.CreateLogger<RedisCache>();
             _databaseProvider = databaseProvider;
@@ -65,13 +54,14 @@ namespace Kyle.Infrastructure.RedisExtensions
 
             var now = DateTime.Now.AddDays(1);
             DefaultAbsoluteExpireTime = DateTime.SpecifyKind(now, DateTimeKind.Utc);
+            _redisCacheSerializer = redisCacheSerializer;
         }
 
 
         public override bool TryGetValue(string key, out object value)
         {
             var redisValue = _database.StringGet(GetLocalizeKey(key));
-            value = redisValue.HasValue ? JsonConvert.DeserializeObject(redisValue) : null;
+            value = redisValue.HasValue ? Deserialize(redisValue) : null;
             return redisValue.HasValue;
         }
 
@@ -80,7 +70,7 @@ namespace Kyle.Infrastructure.RedisExtensions
             var obj = _database.StringGet(GetLocalizeKey(key));
             if (obj.HasValue)
             {
-                return JsonConvert.DeserializeObject(obj);
+                return Deserialize(obj);
             }
             return null;
         }
@@ -89,7 +79,7 @@ namespace Kyle.Infrastructure.RedisExtensions
         {
             if (value == null) throw new KyleException("Can not insert null values to the cache!");
             var redisKey = GetLocalizeKey(key);
-            var redisValue = JsonConvert.SerializeObject(value);
+            var redisValue = Serialize(value, value.GetType());
 
             _logger.LogInformation($"Set key:{redisKey} value:{redisValue} in redis");
 
@@ -171,6 +161,17 @@ namespace Kyle.Infrastructure.RedisExtensions
         {
             return _database.KeyTimeToLive(GetLocalizeKey(key));
         }
+
+        protected virtual object Deserialize(RedisValue redisValue)
+        {
+            return _redisCacheSerializer.Deserialize(redisValue);
+        }
+
+        protected virtual string Serialize(object value, Type type)
+        {
+            return _redisCacheSerializer.Serialize(value, type);
+        }
+
 
         private string GetLocalizeKey(string key)
         {

@@ -31,9 +31,9 @@ var provider = services.BuildServiceProvider();
 
 var cache = provider.GetService<IRedisCacheManager>();
 
-var result = cache.GetCache<string, User>().Get("user", (key) =>
+var result = cache.GetCache<string, User>().Get("user1", (key) =>
 {
-    return new User(2, "test");
+    return new User(2, "test1");
 });
 
 //var result = cache.GetOrDefault("test");

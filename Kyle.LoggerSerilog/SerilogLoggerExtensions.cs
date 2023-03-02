@@ -24,7 +24,7 @@ namespace Kyle.LoggerSerilog
                 configuration.ReadFrom.Configuration(builder.Configuration)
                 .ReadFrom.Services(services)
                 .Enrich.FromLogContext()
-                .WriteTo.Console()
+                //.WriteTo.Console()
                 ;
             });
 

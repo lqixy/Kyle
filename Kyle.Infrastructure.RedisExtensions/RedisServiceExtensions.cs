@@ -20,6 +20,7 @@ namespace Kyle.Infrastructure.RedisExtensions
                 }
             }
 
+            services.AddSingleton<IRedisCacheSerializer, RedisCacheSerializer>();
             services.AddSingleton<IRedisCacheDatabaseProvider, RedisCacheDatabaseProvider>();
             services.AddSingleton<IRedisCache, RedisCache>();
             services.AddSingleton<IRedisCacheManager, RedisCacheManager>();
