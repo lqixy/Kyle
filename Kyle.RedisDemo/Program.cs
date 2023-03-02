@@ -18,24 +18,48 @@ using var logFactory = LoggerFactory.Create(logBuilder =>
 });
 
 var services = new ServiceCollection()
+    .AddLogging(config => config.AddConsole())
     .AddSingleton<IConfiguration>(configuration)
     ;
 
+
 services.AddRedisService();
 
-// services.AddSingleton<ITest, Test>();
-
-// Console.WriteLine(configuration["Redis:ConnectionString"]);
 
 var provider = services.BuildServiceProvider();
 
-// var t = provider.GetRequiredService<ITest>();
-// t.Foo();
 
-var cache = provider.GetService<IRedisCache>();
+var cache = provider.GetService<IRedisCacheManager>();
 
-cache.Set("test", new { Id = 1, Name = "kyle", CreationTime = DateTime.Now });
+var result = cache.GetCache<string, User>().Get("user", (key) =>
+{
+    return new User(2, "test");
+});
 
-var result = cache.GetOrDefault("test");
+//var result = cache.GetOrDefault("test");
+//if (result == null)
+//    cache.Set("test", new { Id = 1, Name = "kyle", CreationTime = DateTime.Now });
+
 Console.WriteLine(result);
 
+
+class User
+{
+    public User()
+    {
+    }
+
+    public User(int id, string name)
+    {
+        Id = id;
+        Name = name;
+        CreationTime = DateTime.Now;
+    }
+
+
+    public int Id { get; set; }
+
+    public string Name { get; set; }
+
+    public DateTime CreationTime { get; set; }
+}

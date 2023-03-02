@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Compile Remove="CacheManagerBase.cs" />
-    <Compile Remove="IAbpCache.cs" />
     <Compile Remove="ICache.cs" />
     <Compile Remove="ICacheManager.cs" />
     <Compile Remove="ICachingConfiguration.cs" />

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Kyle.Infrastructure.RedisExtensions
 {
-    public interface IRedisCache
+    public interface IRedisCache : IAbpCache<string, object>
     {
         IDatabase Database { get; }
 
@@ -21,16 +21,18 @@ namespace Kyle.Infrastructure.RedisExtensions
         object GetOrDefault(string key);
         void Remove(string key);
         Task RemoveAsync(string key);
-        void Set(string key, object value, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null);
+        //void Set(string key, object value, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null);
         void SetExpiration(string key, TimeSpan expiration);
         Task SetExpirationAsync(string key, TimeSpan expiration);
         bool TryGetValue(string key, out object value);
+
+
     }
 
-    public class RedisCache : IRedisCache
+    public class RedisCache : AbpCacheBase<string, object>, IRedisCache
     {
         private readonly IDatabase _database;
-        //private readonly ILogger _logger;
+        private readonly ILogger _logger;
         public IDatabase Database { get { return _database; } }
 
         private TimeSpan DefaultSlidingExpireTime { get; }
@@ -49,9 +51,12 @@ namespace Kyle.Infrastructure.RedisExtensions
 
         private readonly IRedisCacheDatabaseProvider _databaseProvider;
 
-        public RedisCache(IRedisCacheDatabaseProvider databaseProvider//, ILogger<RedisCache> logger
-            )
+        public RedisCache(IRedisCacheDatabaseProvider databaseProvider
+            //, ILogger<RedisCache> logger
+            , ILoggerFactory loggerFactory
+            ) : base(loggerFactory)
         {
+            _logger = loggerFactory.CreateLogger<RedisCache>();
             _databaseProvider = databaseProvider;
             _database = _databaseProvider.GetDatabase();
             //_logger = logger;
@@ -63,7 +68,7 @@ namespace Kyle.Infrastructure.RedisExtensions
         }
 
 
-        public bool TryGetValue(string key, out object value)
+        public override bool TryGetValue(string key, out object value)
         {
             var redisValue = _database.StringGet(GetLocalizeKey(key));
             value = redisValue.HasValue ? JsonConvert.DeserializeObject(redisValue) : null;
@@ -80,39 +85,46 @@ namespace Kyle.Infrastructure.RedisExtensions
             return null;
         }
 
-        public void Set(string key, object value, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null)
+        public override void Set(string key, object value, TimeSpan? slidingExpireTime = null, DateTimeOffset? absoluteExpireTime = null)
         {
             if (value == null) throw new KyleException("Can not insert null values to the cache!");
             var redisKey = GetLocalizeKey(key);
             var redisValue = JsonConvert.SerializeObject(value);
+
+            _logger.LogInformation($"Set key:{redisKey} value:{redisValue} in redis");
+
             if (absoluteExpireTime.HasValue)
             {
-                if (!_database.StringSet(redisKey, redisValue)) { }
-                    //_logger.LogError($"Unable to set key:{key} value:{redisValue} in redis");
-                else if (!_database.KeyExpire(redisKey, absoluteExpireTime.Value.UtcDateTime)) { }
-                    //_logger.LogError($"Unable to set key:{key} to expire at {absoluteExpireTime.Value.UtcDateTime} in Redis");
+                if (!_database.StringSet(redisKey, redisValue))
+                {
+                    _logger.LogError($"Unable to set key:{redisKey} value:{redisValue} in redis");
+                }
+                else if (!_database.KeyExpire(redisKey, absoluteExpireTime.Value.UtcDateTime))
+                {
+                    _logger.LogError($"Unable to set key:{redisKey} to expire at {absoluteExpireTime.Value.UtcDateTime} in Redis");
+                }
             }
             else if (slidingExpireTime.HasValue)
             {
-                if (!_database.StringSet(redisKey, redisValue, slidingExpireTime.Value)) { }
-                    //_logger.LogError($"Unable to set key:{key} value:{redisValue} to expire after {slidingExpireTime.Value} in Redis");
+                if (!_database.StringSet(redisKey, redisValue, slidingExpireTime.Value))
+                    _logger.LogError($"Unable to set key:{redisKey} value:{redisValue} to expire after {slidingExpireTime.Value} in Redis");
             }
             else if (DefaultAbsoluteExpireTime.HasValue)
             {
                 if (!_database.StringSet(redisKey, redisValue))
                 {
-                    //_logger.LogError("Unable to set key:{0} value:{1} in Redis", key, redisValue);
+                    _logger.LogError("Unable to set key:{0} value:{1} in Redis", redisKey, redisValue);
                 }
                 else if (!_database.KeyExpire(redisKey, DefaultAbsoluteExpireTime.Value.UtcDateTime))
                 {
-                    //_logger.LogError("Unable to set key:{0} to expire at {1:O} in Redis", key, DefaultAbsoluteExpireTime.Value.UtcDateTime);
+                    _logger.LogError("Unable to set key:{0} to expire at {1:O} in Redis", redisKey, DefaultAbsoluteExpireTime.Value.UtcDateTime);
                 }
             }
             else
             {
                 if (!_database.StringSet(redisKey, redisValue, DefaultSlidingExpireTime))
                 {
-                    //_logger.LogError("Unable to set key:{0} value:{1} to expire after {2:c} in Redis", key, redisValue, DefaultSlidingExpireTime);
+                    _logger.LogError("Unable to set key:{0} value:{1} to expire after {2:c} in Redis", redisKey, redisValue, DefaultSlidingExpireTime);
                 }
             }
 
@@ -162,7 +174,8 @@ namespace Kyle.Infrastructure.RedisExtensions
 
         private string GetLocalizeKey(string key)
         {
-            return "Mall:"+key;
+            return "Mall:" + key;
         }
+
     }
 }

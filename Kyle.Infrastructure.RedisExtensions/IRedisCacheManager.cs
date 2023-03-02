@@ -7,20 +7,26 @@ using System.Threading.Tasks;
 
 namespace Kyle.Infrastructure.RedisExtensions
 {
-    //public interface IRedisCacheManager
-    //{
-    //    IDatabase Database { get; }
-    //}
+    public interface IRedisCacheManager
+    {
+        IRedisCache GetCache();
+        //IDatabase GetCache();
+    }
 
-    //public class RedisCacheManager : IRedisCacheManager
-    //{
-    //    private readonly IRedisCache _redisCache;
+    public class RedisCacheManager : IRedisCacheManager
+    {
+        private readonly IRedisCache _redisCache;
 
-    //    public RedisCacheManager(IRedisCache redisCache)
-    //    {
-    //        _redisCache = redisCache;
-    //    }
+        public RedisCacheManager(IRedisCache redisCache)
+        {
+            _redisCache = redisCache;
+        }
 
-    //    public IDatabase Database => _redisCache.Database;
-    //}
+        //public IDatabase Database => _redisCache.Database;
+        public IRedisCache GetCache()
+        {
+            return this._redisCache;
+        }
+    }
+
 }
