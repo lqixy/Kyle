@@ -1,6 +1,7 @@
 ﻿using Kyle.Extensions;
 using Kyle.Extensions.WebApi.Models;
 using Newtonsoft.Json;
+using System.Net;
 
 namespace Kyle.Mall.Middlewares
 {
@@ -23,14 +24,16 @@ namespace Kyle.Mall.Middlewares
 
             await _next(context);
 
-            context.Response.Body = originBody;
-            memoryStream.Seek(0, SeekOrigin.Begin);
+            if (context.Response.StatusCode == (int)HttpStatusCode.OK)
+            {
+                context.Response.Body = originBody;
+                memoryStream.Seek(0, SeekOrigin.Begin);
+                var readToEnd = new StreamReader(memoryStream).ReadToEnd();
+                var objResult = JsonConvert.DeserializeObject(readToEnd);
+                var result = new AjaxResponse(context.Response.StatusCode, context.Response.StatusCode.ToString(), objResult);
 
-            var readToEnd = new StreamReader(memoryStream).ReadToEnd();
-            var objResult = JsonConvert.DeserializeObject(readToEnd);
-            var result = new AjaxResponse((int)context.Response.StatusCode, context.Response.StatusCode.ToString(), objResult);
-
-            await context.Response.WriteAsync(result.ToJsonString());
+                await context.Response.WriteAsync(result.ToJsonString());
+            }
         }
     }
 }

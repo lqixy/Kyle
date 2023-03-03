@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Kyle.Mall.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class MallControllerBase : ControllerBase
     {
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Kyle.Extensions.Exceptions;
+using Microsoft.Extensions.Configuration;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,11 @@ namespace Kyle.Infrastructure.RedisExtensions
         {
             this.configuration = configuration;
             _connectionMultiplexer = new Lazy<ConnectionMultiplexer>(GetConnectionMultiplexer());
+
+            _connectionMultiplexer.Value.ConnectionFailed += (sender, e) =>
+            {
+                throw new KyleException("Redis connection error!");
+            };
         }
 
         public ConnectionMultiplexer ConnectionMultiplexer

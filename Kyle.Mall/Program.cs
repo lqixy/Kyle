@@ -9,13 +9,18 @@ using Kyle.Mall.Middlewares;
 using Kyle.Infrastructure.RedisExtensions;
 using Kyle.Mall;
 using Kyle.Mall.Extensions;
+using Kyle.Mall.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container. 
 builder.Services.AddTransient<CustomApiFilterMiddleware>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add(typeof(CustomExceptionFilter));
+    options.Filters.Add(typeof(CustomResultFilter));
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -63,14 +68,15 @@ app.MapControllers();
 
 app.MapGet("/health/check", () => Results.Ok());
 
-app.UseWhen(context => context.Request.Path.StartsWithSegments("/api/test"), appBuilde =>
-{
-    appBuilde.UseMiddleware<CustomApiFilterMiddleware>();
-});
+//app.UseWhen(context => context.Request.Path.StartsWithSegments("/api/test"), appBuilde =>
+//{
+//    appBuilde.UseMiddleware<CustomApiFilterMiddleware>();
+//});
 
 app.UseConsul(builder.Configuration);
+app.UseMiddleware<CustomApiFilterMiddleware>();
 
 //app.UseExceptionHandling();
-app.UseResponseWrapper();
+//app.UseResponseWrapper();
 
 app.Run();

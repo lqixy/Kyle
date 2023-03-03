@@ -30,9 +30,6 @@ namespace Kyle.Mall.Middlewares
 
             await next(context);
 
-
-
-
             memoryStream.Position = 0;
             var responseReader = new StreamReader(memoryStream);
             var responseContent = await responseReader.ReadToEndAsync();
