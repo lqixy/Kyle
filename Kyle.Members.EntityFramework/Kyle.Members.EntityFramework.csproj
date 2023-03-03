@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Kyle.DapperFrameworkExtensions\Kyle.DapperFrameworkExtensions.csproj" />
+    <ProjectReference Include="..\Kyle.EntityFrameworkExtensions\Kyle.EntityFrameworkExtensions.csproj" />
     <ProjectReference Include="..\Kyle.Members.Domain\Kyle.Members.Domain.csproj" />
   </ItemGroup>
 

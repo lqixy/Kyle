@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace Kyle.DapperFrameworkExtensions
 {
-    //public interface IDbContextProvider<out TDatabase> where TDatabase : IDatabase
-    public interface IDbContextProvider
+    public interface IDbContextProvider<out TDatabase> where TDatabase : IDatabase
+        //public interface IDbContextProvider
     {
         IDatabase GetDbConnection();
     }
 
-    //public class DapperDbContextProvider<TDatabase> : IDbContextProvider<TDatabase> where TDatabase : IDatabase
-    public class DapperDbContextProvider : IDbContextProvider
+    public class DapperDbContextProvider<TDatabase> : IDbContextProvider<TDatabase> where TDatabase : IDatabase
+    //public class DapperDbContextProvider : IDbContextProvider
     {
         public IDbProviderFactory _dbProviderFactory { get; private set; }
 

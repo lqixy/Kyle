@@ -1,7 +1,7 @@
 using Kyle.DependencyAutofac;
 using Kyle.Infrastructure.ConsulFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Kyle.DapperFrameworkExtensions;
+//using Kyle.DapperFrameworkExtensions;
 using Autofac.Extensions.DependencyInjection;
 using Autofac;
 using Kyle.LoggerSerilog;
@@ -10,15 +10,16 @@ using Kyle.Infrastructure.RedisExtensions;
 using Kyle.Mall;
 using Kyle.Mall.Extensions;
 using Kyle.Mall.Filters;
+using Kyle.EntityFrameworkExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container. 
-builder.Services.AddTransient<CustomApiFilterMiddleware>();
+//builder.Services.AddTransient<CustomApiFilterMiddleware>();
 
 builder.Services.AddControllers(options =>
 {
-    options.Filters.Add(typeof(CustomExceptionFilter));
+    //options.Filters.Add(typeof(CustomExceptionFilter));
     options.Filters.Add(typeof(CustomResultFilter));
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -47,7 +48,9 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     })
     ;
 
-builder.Services.AddDapper();
+//builder.Services.AddDapper();
+builder.Services.AddEfCore(builder.Configuration);
+
 
 builder.Services.AddRedisService();
 
@@ -73,8 +76,8 @@ app.MapGet("/health/check", () => Results.Ok());
 //    appBuilde.UseMiddleware<CustomApiFilterMiddleware>();
 //});
 
-app.UseConsul(builder.Configuration);
-app.UseMiddleware<CustomApiFilterMiddleware>();
+//app.UseConsul(builder.Configuration);
+//app.UseMiddleware<CustomApiFilterMiddleware>();
 
 //app.UseExceptionHandling();
 //app.UseResponseWrapper();

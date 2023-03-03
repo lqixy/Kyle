@@ -43,9 +43,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{AA545146-2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.RedisDemo", "Kyle.RedisDemo\Kyle.RedisDemo.csproj", "{90619599-738B-420C-BD24-E0F275865BBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.DIDemo", "Kyle.DIDemo\Kyle.DIDemo.csproj", "{C25BC86B-B03E-4665-9A47-CAD10CDF876F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.DIDemo", "Kyle.DIDemo\Kyle.DIDemo.csproj", "{C25BC86B-B03E-4665-9A47-CAD10CDF876F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Gateway", "Kyle.Gateway\Kyle.Gateway.csproj", "{3F63D800-1CFD-4023-BD01-DE13B8631962}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Gateway", "Kyle.Gateway\Kyle.Gateway.csproj", "{3F63D800-1CFD-4023-BD01-DE13B8631962}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Members.EntityFramework", "Kyle.Members.EntityFramework\Kyle.Members.EntityFramework.csproj", "{E0011C64-5B87-4E3D-8100-599E2E76D4DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.DependencyServiceCollection", "Kyle.DependencyServiceCollection\Kyle.DependencyServiceCollection.csproj", "{F94D8610-BC8D-4F7A-B9E9-555AAF78AD33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Members.EntityFramework.Test", "Kyle.Members.EntityFramework.Test\Kyle.Members.EntityFramework.Test.csproj", "{B8917E73-4E98-48C9-81C4-5DA44CA33FCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,6 +127,18 @@ Global
 		{3F63D800-1CFD-4023-BD01-DE13B8631962}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F63D800-1CFD-4023-BD01-DE13B8631962}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F63D800-1CFD-4023-BD01-DE13B8631962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0011C64-5B87-4E3D-8100-599E2E76D4DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0011C64-5B87-4E3D-8100-599E2E76D4DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0011C64-5B87-4E3D-8100-599E2E76D4DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0011C64-5B87-4E3D-8100-599E2E76D4DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F94D8610-BC8D-4F7A-B9E9-555AAF78AD33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F94D8610-BC8D-4F7A-B9E9-555AAF78AD33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F94D8610-BC8D-4F7A-B9E9-555AAF78AD33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F94D8610-BC8D-4F7A-B9E9-555AAF78AD33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8917E73-4E98-48C9-81C4-5DA44CA33FCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8917E73-4E98-48C9-81C4-5DA44CA33FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8917E73-4E98-48C9-81C4-5DA44CA33FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8917E73-4E98-48C9-81C4-5DA44CA33FCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -144,6 +162,9 @@ Global
 		{90619599-738B-420C-BD24-E0F275865BBD} = {AA545146-2828-42AD-9B7B-B7BFB232FB51}
 		{C25BC86B-B03E-4665-9A47-CAD10CDF876F} = {AA545146-2828-42AD-9B7B-B7BFB232FB51}
 		{3F63D800-1CFD-4023-BD01-DE13B8631962} = {21D8411B-6031-493B-96B2-3136A89F30D8}
+		{E0011C64-5B87-4E3D-8100-599E2E76D4DB} = {35B4F2B5-C1C7-4118-86F6-E74DA50819D5}
+		{F94D8610-BC8D-4F7A-B9E9-555AAF78AD33} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
+		{B8917E73-4E98-48C9-81C4-5DA44CA33FCD} = {35B4F2B5-C1C7-4118-86F6-E74DA50819D5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12AFE152-B9ED-4907-A6BD-14953312D61B}

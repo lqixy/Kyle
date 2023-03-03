@@ -16,6 +16,8 @@ namespace Kyle.DapperFrameworkExtensions
             //    selector => selector.FromAssemblies(Assembly.GetExecutingAssembly())
             //    .AddClasses()
             //    );
+
+            services.AddSingleton(typeof(IDbContextProvider<>), typeof(DapperDbContextProvider<>));
             services.AddSingleton<IConnectionStringResolver, DefaultConnectionStringResolver>()
                 .AddSingleton<IDbProviderFactory, SqlServerDbProviderFactory>()
                 .AddSingleton<IDatabase, Database>()

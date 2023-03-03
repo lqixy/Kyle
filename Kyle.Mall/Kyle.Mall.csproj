@@ -20,7 +20,7 @@
     <ProjectReference Include="..\Kyle.Infrastructure.RedisExtensions\Kyle.Infrastructure.RedisExtensions.csproj" />
     <ProjectReference Include="..\Kyle.LoggerSerilog\Kyle.LoggerSerilog.csproj" />
     <ProjectReference Include="..\Kyle.Members.Application\Kyle.Members.Application.csproj" />
-    <ProjectReference Include="..\Kyle.Members.DapperFramework\Kyle.Members.DapperFramework.csproj" />
+    <ProjectReference Include="..\Kyle.Members.EntityFramework\Kyle.Members.EntityFramework.csproj" />
   </ItemGroup>
 
 </Project>

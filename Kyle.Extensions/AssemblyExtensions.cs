@@ -18,12 +18,16 @@ namespace Kyle.Extensions
                 .Select(x => AssemblyLoadContext.Default.LoadFromAssemblyName(new AssemblyName(x.Name))).ToArray();
         }
 
-        //public static Assembly[] GetAssemblies(Type type)
-        //{
-        //    return DependencyContext.Default.CompileLibraries
-        //        .Where(x => !x.Serviceable && x.Type != "package")
-        //        .WhereIf(type != null, x => x == type)
-        //        .Select(x => AssemblyLoadContext.Default.LoadFromAssemblyName(new AssemblyName(x.Name))).ToArray();
-        //}
+        public static bool IsImplement(this Type entityType, Type interfaceType)
+        {
+            return entityType.GetTypeInfo().GetInterfaces().Any(x =>
+                x.GetTypeInfo().IsGenericType && x.GetGenericTypeDefinition() == interfaceType);
+        }
+
+        public static bool IsSubClassOf(this Type entityType, Type superType)
+        {
+            return entityType.GetTypeInfo().IsSubClassOf(superType);
+        }
+
     }
 }
