@@ -13,7 +13,10 @@
     <projectFile>Kyle.RedisDemo/Kyle.RedisDemo.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23b9947f-4f70-4836-a362-6358f2a3dbc6" name="Changes" comment="增加RabbitMQ" />
+    <list default="true" id="23b9947f-4f70-4836-a362-6358f2a3dbc6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Kyle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kyle/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.sln" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -230,7 +233,8 @@
       <updated>1677674459585</updated>
       <workItem from="1677674469291" duration="5667000" />
       <workItem from="1677847956884" duration="7733000" />
-      <workItem from="1677978659195" duration="12034000" />
+      <workItem from="1677978659195" duration="12335000" />
+      <workItem from="1678007491624" duration="3539000" />
     </task>
     <task id="LOCAL-00001" summary="rediskey修改">
       <created>1677676071552</created>
@@ -246,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678000491471</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="RabbitMQ">
+      <created>1678000840413</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678000840413</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +269,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="rediskey修改" />
     <MESSAGE value="增加RabbitMQ" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加RabbitMQ" />
+    <MESSAGE value="RabbitMQ" />
+    <option name="LAST_COMMIT_MESSAGE" value="RabbitMQ" />
   </component>
 </project>
