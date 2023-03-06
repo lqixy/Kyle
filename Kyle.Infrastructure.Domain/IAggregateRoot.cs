@@ -1,4 +1,4 @@
-using Kyle.Infrastructure.Event.Bus;
+using Kyle.Infrastructure.Events;
 
 namespace Kyle.Infrastructure.Domain;
 

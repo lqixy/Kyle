@@ -1,4 +1,4 @@
-using Kyle.Infrastructure.Event.Bus;
+using Kyle.Infrastructure.Events;
 
 namespace Kyle.Infrastructure.Domain;
 
@@ -27,7 +27,7 @@ public class AggregateRoot<TKey> : IEntity<TKey>, IAggregateRoot<TKey>
     {
         if (data == null) throw new ArgumentException("eventData");
 
-        data.AggregateRootId = $"{AggregateRootId}";
+        //data.AggregateRootId = $"{AggregateRootId}";
         DomainEvents.Enqueue(data);
     }
 }
