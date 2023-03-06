@@ -49,19 +49,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Gateway", "Kyle.Gatewa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Members.EntityFramework", "Kyle.Members.EntityFramework\Kyle.Members.EntityFramework.csproj", "{E0011C64-5B87-4E3D-8100-599E2E76D4DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.DependencyServiceCollection", "Kyle.DependencyServiceCollection\Kyle.DependencyServiceCollection.csproj", "{F94D8610-BC8D-4F7A-B9E9-555AAF78AD33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.DependencyServiceCollection", "Kyle.DependencyServiceCollection\Kyle.DependencyServiceCollection.csproj", "{F94D8610-BC8D-4F7A-B9E9-555AAF78AD33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Members.EntityFramework.Test", "Kyle.Members.EntityFramework.Test\Kyle.Members.EntityFramework.Test.csproj", "{B8917E73-4E98-48C9-81C4-5DA44CA33FCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Members.EntityFramework.Test", "Kyle.Members.EntityFramework.Test\Kyle.Members.EntityFramework.Test.csproj", "{B8917E73-4E98-48C9-81C4-5DA44CA33FCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Infrastructure.RabbitMQExtensions", "Kyle.Infrastructure.RabbitMQExtensions\Kyle.Infrastructure.RabbitMQExtensions.csproj", "{088DB396-6117-46D4-B7DE-70531295F909}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Infrastructure.RabbitMQExtensions", "Kyle.Infrastructure.RabbitMQExtensions\Kyle.Infrastructure.RabbitMQExtensions.csproj", "{088DB396-6117-46D4-B7DE-70531295F909}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.RabbitMQDemo.Consumer", "Kyle.RabbitMQDemo.Consumer\Kyle.RabbitMQDemo.Consumer.csproj", "{7B926516-D632-4152-A3B0-54C40D6E323F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.RabbitMQDemo.Consumer", "Kyle.RabbitMQDemo.Consumer\Kyle.RabbitMQDemo.Consumer.csproj", "{7B926516-D632-4152-A3B0-54C40D6E323F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.RabbitMQDemo.Producer", "Kyle.RabbitMQDemo.Producer\Kyle.RabbitMQDemo.Producer.csproj", "{5DD49C65-87B1-4D29-A6F8-36E1E754F1F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.RabbitMQDemo.Producer", "Kyle.RabbitMQDemo.Producer\Kyle.RabbitMQDemo.Producer.csproj", "{5DD49C65-87B1-4D29-A6F8-36E1E754F1F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Infrastructure.Event", "Kyle.Infrastructure.Event\Kyle.Infrastructure.Event.csproj", "{34D7EDF4-EE4F-4F67-A03E-34CA4661199A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Infrastructure.Event", "Kyle.Infrastructure.Event\Kyle.Infrastructure.Event.csproj", "{34D7EDF4-EE4F-4F67-A03E-34CA4661199A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Infrastructure.Domain", "Kyle.Infrastructure.Domain\Kyle.Infrastructure.Domain.csproj", "{FD46C5FE-C2C8-4019-A381-F03C1C90E09B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Infrastructure.Domain", "Kyle.Infrastructure.Domain\Kyle.Infrastructure.Domain.csproj", "{FD46C5FE-C2C8-4019-A381-F03C1C90E09B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

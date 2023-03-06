@@ -1,26 +1,83 @@
-using Kyle.Infrastructure.Event.Bus.Handlers;
-using Kyle.Infrastructure.Event.Bus.Handlers.Factories;
+﻿using Kyle.Infrastructure.Event.Handlers;
+using Kyle.Infrastructure.Event.Handlers.Factories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Kyle.Infrastructure.Event.Bus;
-
-public interface IEventBus
+namespace Kyle.Infrastructure.Event.Bus
 {
-    IDisposable Register<TEventData>(Action<TEventData> action) where TEventData : IEventData;
+    public interface IEventBus
+    {
+        #region Register
 
-    IDisposable AsyncRegister<TEventData>(Func<TEventData, Task> action) where TEventData : IEventData;
+        /// <summary>
+        /// Registers to an event.
+        /// Given action is called for all event occurrences.
+        /// </summary>
+        /// <param name="action">Action to handle events</param>
+        /// <typeparam name="TEventData">Event type</typeparam>
+        IDisposable Register<TEventData>(Action<TEventData> action) where TEventData : IEventData;
 
-    IDisposable Register<TEventData>(IEventHandler<TEventData> handler) where TEventData : IEventData;
+        /// <summary>
+        /// Registers to an event.
+        /// Given action is called for all event occurrences.
+        /// </summary>
+        /// <param name="action">Action to handle events</param>
+        /// <typeparam name="TEventData">Event type</typeparam>
+        IDisposable AsyncRegister<TEventData>(Func<TEventData, Task> action) where TEventData : IEventData;
 
-    IDisposable AsyncRegister<TEventData>(IAsyncEventHandler<TEventData> handler) where TEventData : IEventData;
+        /// <summary>
+        /// Registers to an event. 
+        /// Same (given) instance of the handler is used for all event occurrences.
+        /// </summary>
+        /// <typeparam name="TEventData">Event type</typeparam>
+        /// <param name="handler">Object to handle the event</param>
+        IDisposable Register<TEventData>(IEventHandler<TEventData> handler) where TEventData : IEventData;
 
-    IDisposable Register<TEventData, THandler>() where TEventData : IEventData where THandler : IEventHandler ,new();
+        /// <summary>
+        /// Registers to an event. 
+        /// Same (given) instance of the async handler is used for all event occurrences.
+        /// </summary>
+        /// <typeparam name="TEventData">Event type</typeparam>
+        /// <param name="handler">Object to handle the event</param>
+        IDisposable AsyncRegister<TEventData>(IAsyncEventHandler<TEventData> handler) where TEventData : IEventData;
 
-    IDisposable Register(Type eventType, IEventHandler handler);
+        /// <summary>
+        /// Registers to an event.
+        /// A new instance of <typeparamref name="THandler"/> object is created for every event occurrence.
+        /// </summary>
+        /// <typeparam name="TEventData">Event type</typeparam>
+        /// <typeparam name="THandler">Type of the event handler</typeparam>
+        IDisposable Register<TEventData, THandler>() where TEventData : IEventData where THandler : IEventHandler, new();
 
-    IDisposable Register<TEventData>(IEventHandlerFactory factory) where TEventData : IEventData;
+        /// <summary>
+        /// Registers to an event.
+        /// Same (given) instance of the handler is used for all event occurrences.
+        /// </summary>
+        /// <param name="eventType">Event type</param>
+        /// <param name="handler">Object to handle the event</param>
+        IDisposable Register(Type eventType, IEventHandler handler);
 
-    IDisposable Register(Type eventType, IEventHandlerFactory factory);
-    
+        /// <summary>
+        /// Registers to an event.
+        /// Given factory is used to create/release handlers
+        /// </summary>
+        /// <typeparam name="TEventData">Event type</typeparam>
+        /// <param name="factory">A factory to create/release handlers</param>
+        IDisposable Register<TEventData>(IEventHandlerFactory factory) where TEventData : IEventData;
+
+        /// <summary>
+        /// Registers to an event.
+        /// </summary>
+        /// <param name="eventType">Event type</param>
+        /// <param name="factory">A factory to create/release handlers</param>
+        IDisposable Register(Type eventType, IEventHandlerFactory factory);
+
+        #endregion
+
+        #region Unregister
 
         /// <summary>
         /// Unregisters from an event.
@@ -83,7 +140,10 @@ public interface IEventBus
         /// <param name="eventType">Event type</param>
         void UnregisterAll(Type eventType);
 
-        
+        #endregion
+
+        #region Trigger
+
         /// <summary>
         /// Triggers an event.
         /// </summary>
@@ -149,5 +209,9 @@ public interface IEventBus
         Task TriggerAsync(Type eventType, object eventSource, IEventData eventData);
 
 
+        #endregion
         Type GetType(string typeName);
+    }
+
+
 }

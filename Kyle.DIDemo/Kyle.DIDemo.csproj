@@ -11,8 +11,4 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Kyle.Infrastructure.RabbitMQExtensions\Kyle.Infrastructure.RabbitMQExtensions.csproj" />
-  </ItemGroup>
-
 </Project>
