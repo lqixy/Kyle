@@ -24,6 +24,11 @@ namespace Kyle.Infrastructure.Events.Bus
             Container = new WindsorContainer();
         }
 
+        static EventBus()
+        {
+            Default = new EventBus();
+        }
+
         public void Register<TEventData>(IEventHandler eventHandler) where TEventData : IEventData
         {
             Register(typeof(TEventData), eventHandler.GetType());
