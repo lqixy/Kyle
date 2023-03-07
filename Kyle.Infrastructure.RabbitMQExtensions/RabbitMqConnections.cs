@@ -14,7 +14,14 @@ public class RabbitMqConnections : Dictionary<string, ConnectionFactory>
 
     public RabbitMqConnections()
     {
-        Default = new ConnectionFactory();
+        Default = new ConnectionFactory()
+        {
+            HostName = "localhost",
+            Port = 5672,
+            UserName = "kyle",
+            Password = "19841230",
+            VirtualHost = "mall"
+        };
     }
 
     public ConnectionFactory GetOrDefault(string connectionName)
@@ -26,5 +33,5 @@ public class RabbitMqConnections : Dictionary<string, ConnectionFactory>
 
         return Default;
     }
-    
+
 }

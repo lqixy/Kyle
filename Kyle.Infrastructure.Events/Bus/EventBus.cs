@@ -148,5 +148,30 @@ namespace Kyle.Infrastructure.Events.Bus
         {
             return Task.Run(() => Trigger(eventHandlerType, eventData));
         }
+
+        private readonly ConcurrentDictionary<string, Type> _dic = new ConcurrentDictionary<string, Type>();
+
+        public Type GetType(string name)
+        {
+            Type t;
+            if (_dic.TryGetValue(name, out t)) return t;
+
+            foreach (var item in _store._mapping.Keys)
+            {
+                var typeName = GetTypeName(item);
+                var type = string.Compare(name, typeName) == 0;
+                if (type)
+                {
+                    _dic.TryAdd(typeName, item);
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        public string GetTypeName(Type type)
+        {
+            return type.FullName;
+        }
     }
 }

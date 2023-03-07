@@ -1,6 +1,9 @@
 using System.Collections.Concurrent;
 using System.Text;
+using Kyle.Infrastructure.Events;
+using Kyle.Infrastructure.Events.Bus;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -9,13 +12,17 @@ namespace Kyle.Infrastructure.RabbitMQExtensions;
 public class ApplicationMessageConsumer//:IDisposable
 {
     protected IConnectionPool ConnectionPool { get; }
-    private ConcurrentDictionary<string,IModel> Channels { get; }
+    private ConcurrentDictionary<string, IModel> Channels { get; }
     private Dictionary<string, bool> QueueAutoAck = new Dictionary<string, bool>();
     private readonly RabbitMQMessageSerializer _rabbitMqMessageSerializer;
+
+    public IEventBus EventBus { get; set; }
+
     public ILogger Logger { get; set; }
 
-    public ApplicationMessageConsumer(IConnectionPool connectionPool,RabbitMQMessageSerializer rabbitMqMessageSerializer, ILogger<ApplicationMessageConsumer> logger)
+    public ApplicationMessageConsumer(IConnectionPool connectionPool, RabbitMQMessageSerializer rabbitMqMessageSerializer, ILogger<ApplicationMessageConsumer> logger)
     {
+        EventBus = new EventBus();
         _rabbitMqMessageSerializer = rabbitMqMessageSerializer;
         ConnectionPool = connectionPool;
         Logger = logger;
@@ -34,17 +41,17 @@ public class ApplicationMessageConsumer//:IDisposable
 
                 if (exchangeDeclare.ExchangeType != "fanout")
                 {
-                    
+
                 }
 
                 var channel = Channels.GetOrAdd(exchangeDeclare.ExchangeName, _ => connection.CreateModel());
                 channel = connection.CreateModel();
                 if (options.BasicQos != null)
                 {
-                    channel.BasicQos(options.BasicQos.PrefetchSize,options.BasicQos.PrefetchCount,options.BasicQos.Global);
+                    channel.BasicQos(options.BasicQos.PrefetchSize, options.BasicQos.PrefetchCount, options.BasicQos.Global);
                 }
-                
-                channel.ExchangeDeclare(exchange:exchangeDeclare.ExchangeName,type:exchangeDeclare.ExchangeType);
+
+                channel.ExchangeDeclare(exchange: exchangeDeclare.ExchangeName, type: exchangeDeclare.ExchangeType);
 
                 if (string.IsNullOrWhiteSpace(exchangeDeclare.QueueNameSuffix))
                 {
@@ -59,18 +66,18 @@ public class ApplicationMessageConsumer//:IDisposable
 
                 if (exchangeDeclare.ExchangeType == "fanout")
                 {
-                    channel.QueueBind(queue:queueName,exchange:exchangeDeclare.ExchangeName,routingKey:string.Empty);
+                    channel.QueueBind(queue: queueName, exchange: exchangeDeclare.ExchangeName, routingKey: string.Empty);
                 }
                 else
                 {
                     foreach (var routingKey in exchangeDeclare.RoutingKey)
                     {
-                        channel.QueueBind(queue:queueName,exchange:exchangeDeclare.ExchangeName,routingKey:routingKey);
+                        channel.QueueBind(queue: queueName, exchange: exchangeDeclare.ExchangeName, routingKey: routingKey);
                     }
                 }
-                
-                SetConsumer(queueName,exchangeDeclare.AutoAck,exchangeDeclare.BasicRecover,channel);
-                
+
+                SetConsumer(queueName, exchangeDeclare.AutoAck, exchangeDeclare.BasicRecover, channel);
+
             }
         }
 
@@ -82,21 +89,21 @@ public class ApplicationMessageConsumer//:IDisposable
                 channel = connection.CreateModel();
                 if (options.BasicQos != null)
                 {
-                    channel.BasicQos(options.BasicQos.PrefetchSize,options.BasicQos.PrefetchCount,options.BasicQos.Global);
+                    channel.BasicQos(options.BasicQos.PrefetchSize, options.BasicQos.PrefetchCount, options.BasicQos.Global);
                 }
 
                 var queueName = channel.QueueDeclare(queue: $"Q-{queueDeclare.QueueName}", durable: options.Durable,
                     exclusive: queueDeclare.Exclusive, autoDelete: false, arguments: queueDeclare.Arguments).QueueName;
-                
-                SetConsumer(queueName,queueDeclare.AutoAck,queueDeclare.BasicRecover,channel);
+
+                SetConsumer(queueName, queueDeclare.AutoAck, queueDeclare.BasicRecover, channel);
             }
         }
         Logger.LogInformation("ApplicationMessageConsumer Initialized");
     }
 
-    private void SetConsumer(string queueName, bool autoAck, MallRabbitMQConsumerOptions.BasicRecoverOptions options,IModel channel)
+    private void SetConsumer(string queueName, bool autoAck, MallRabbitMQConsumerOptions.BasicRecoverOptions options, IModel channel)
     {
-        QueueAutoAck.Add(queueName,autoAck);
+        QueueAutoAck.Add(queueName, autoAck);
         var consumer = new EventingBasicConsumer(channel);
         consumer.Received += (model, ea) =>
         {
@@ -113,16 +120,50 @@ public class ApplicationMessageConsumer//:IDisposable
                 Logger.LogInformation($"[x] Received Message {message.Tag}:{json}");
 
                 // TODO:EventBus
+                var type = EventBus.GetType(message.Tag);
+                var obj = JsonConvert.DeserializeObject(json, type);
 
-                if (!QueueAutoAck[queueName])
+                EventBus.TriggerAsycn(type, obj as IEventData)
+                .ContinueWith(x =>
                 {
-                    CompleteHandle(channel,ea);
-                }
+                    if (x.Exception == null)
+                    {
+                        if (!QueueAutoAck[queueName])
+                        {
+                            CompleteHandle(channel, ea);
+                        }
+                    }
+                    else if (x.Exception.InnerException is IOException)
+                    {
+                        IOExceptionHandle(QueueAutoAck[queueName], options, ea, x.Exception.InnerException, channel, $"{message?.Tag} {json}");
+                    }
+                    else if (x.Exception.InnerException.InnerException is IOException)
+                    {
+                        IOExceptionHandle(QueueAutoAck[queueName], options, ea, x.Exception.InnerException.InnerException, channel, $"{message?.Tag} {json}");
+                    }
+                    else
+                    {
+                        ExceptionHandle(QueueAutoAck[queueName], ea, x.Exception, channel, $"{message?.Tag} {json}");
+                    }
+                });
             }
-            catch (Exception e)
+            catch (IOException e)
             {
-                Console.WriteLine(e);
-                throw;
+                IOExceptionHandle(QueueAutoAck[queueName], options, ea, e, channel);
+            }
+            catch (Exception ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    if (ex.InnerException is IOException)
+                    {
+
+                        IOExceptionHandle(QueueAutoAck[queueName], options, ea, ex, channel);
+                        return;
+                    }
+                }
+
+                ExceptionHandle(QueueAutoAck[queueName], ea, ex, channel);
             }
         };
 
@@ -134,13 +175,55 @@ public class ApplicationMessageConsumer//:IDisposable
     {
         try
         {
-            channel.BasicAck(deliveryTag:ea.DeliveryTag,multiple:false);
+            channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
         }
         catch (Exception e)
         {
-            Logger.LogError(e,"CompleteHandle");
+            Logger.LogError(e, "CompleteHandle");
         }
     }
-    
-    
+
+    private void ExceptionHandle(bool autoAck, BasicDeliverEventArgs ea, Exception ex, IModel channel, string msg = null)
+    {
+        Logger.LogError(ex, $"Received Trigger {msg}");
+        if (!autoAck)
+        {
+            try
+            {
+                channel.BasicReject(ea.DeliveryTag, false);
+                Logger.LogDebug("BasicReject.Requeue:{0}", false);
+            }
+            catch (Exception e)
+            {
+                Logger.LogError(e, "ExceptionHandle");
+            }
+        }
+    }
+
+    private void IOExceptionHandle(bool autoAck, MallRabbitMQConsumerOptions.BasicRecoverOptions basicRecoverOptions, BasicDeliverEventArgs ea, Exception ex, IModel channel, string msg = null)
+    {
+        Logger.LogError(ex, $"Received Trigger IOException {msg}");
+        Thread.Sleep(1000);
+        if (!autoAck)
+        {
+            try
+            {
+                if (basicRecoverOptions != null)
+                {
+                    channel.BasicRecover(basicRecoverOptions.Requeue);
+                    Logger.LogDebug("BasicRecover.Requeue:{0}", basicRecoverOptions.Requeue);
+                }
+                else
+                {
+                    channel.BasicReject(deliveryTag: ea.DeliveryTag, requeue: true);// 重新入队
+                    Logger.LogDebug("BasicReject.Requeue:{0}", true);
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.LogError(e, "IOExceptionHandle");
+            }
+        }
+    }
+
 }

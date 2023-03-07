@@ -29,5 +29,7 @@ namespace Kyle.Infrastructure.Events.Bus
 
         Task TriggerAsycn<TEventData>(Type eventHandlerType, TEventData eventData) where TEventData : IEventData;
 
+        Type GetType(string name);
+
     }
 }

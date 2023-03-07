@@ -10,22 +10,24 @@ public interface IConnectionPool
 
 public class ConnectionPool : IConnectionPool
 {
+    protected RabbitMQOptions Options { get; }
     protected ConcurrentDictionary<string, Lazy<IConnection>> Connections { get; }
 
     private bool _isDisposed;
 
-    public ConnectionPool()
+    public ConnectionPool(RabbitMQOptions options)
     {
+        Options = options;
         Connections = new ConcurrentDictionary<string, Lazy<IConnection>>();
     }
 
 
     public virtual IConnection Get(string connectionName = null)
     {
-        connectionName = connectionName ?? "Default";
+        connectionName = connectionName ?? RabbitMqConnections.DefaultConnectionName;
 
         return Connections.GetOrAdd(connectionName,
-            (x) => { return new Lazy<IConnection>(() => new ConnectionFactory().CreateConnection()); }).Value;
+            (x) => { return new Lazy<IConnection>(() => Options.Connections.GetOrDefault(x).CreateConnection()); }).Value;
     }
 
     public void Dispose()
@@ -43,7 +45,7 @@ public class ConnectionPool : IConnectionPool
             catch
             {
             }
-            
+
             Connections.Clear();
         }
     }

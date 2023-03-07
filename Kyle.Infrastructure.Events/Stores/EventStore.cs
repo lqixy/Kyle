@@ -12,14 +12,21 @@ namespace Kyle.Infrastructure.Events.Stores
     {
         private static readonly object LockObj = new object();
 
-        private readonly ConcurrentDictionary<Type, List<Type>> _mapping;
+        //private readonly ConcurrentDictionary<Type, List<Type>> _mapping;        
+        //public ConcurrentDictionary<Type, List<Type>> _mapping;
+
+        //public ConcurrentDictionary<Type, List<Type>> IEventStore._mapping;
+
+        private ConcurrentDictionary<Type, List<Type>> mapping;
 
         public EventStore()
         {
-            _mapping ??= new ConcurrentDictionary<Type, List<Type>>();
+            mapping ??= new ConcurrentDictionary<Type, List<Type>>();
         }
 
         public bool IsEmpty => throw new NotImplementedException();
+
+        public ConcurrentDictionary<Type, List<Type>> _mapping { get { return mapping; } set { } }
 
         public void AddActionRegister<T>(Action<T> action) where T : IEventData
         {

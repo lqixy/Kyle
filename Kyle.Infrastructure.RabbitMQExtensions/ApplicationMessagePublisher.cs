@@ -1,9 +1,12 @@
+using Kyle.Infrastructure.RabbitMQExtensions.IO;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using RabbitMQ.Client;
+using System.Text;
 
 namespace Kyle.Infrastructure.RabbitMQExtensions;
 
-public class ApplicationMessagePublisher
+public class ApplicationMessagePublisher : IMessagePublisher<IApplicationMessage>, IDisposable
 {
     protected IConnectionPool ConnectionPool { get; }
     private MallRabbitMQPublisherOptions _options;
@@ -14,43 +17,76 @@ public class ApplicationMessagePublisher
     protected Dictionary<string, MallRabbitMQPublisherOptions.QueueDeclareOptions> QueueDeclareDic;
 
     public ApplicationMessagePublisher(RabbitMQMessageSerializer rabbitMqMessageSerializer,
-        MallRabbitMQPublisherOptions options,IConnectionPool connectionPool, ILogger<ApplicationMessagePublisher> logger)
+         IConnectionPool connectionPool, ILoggerFactory logger)
     {
         _rabbitMqMessageSerializer = rabbitMqMessageSerializer;
-        _options = options;
+        //_options = options;
         ConnectionPool = connectionPool;
-        Logger = logger;
+        Logger = logger.CreateLogger<ApplicationMessagePublisher>();
 
-        
+
+
+    }
+
+    public void Initalize(MallRabbitMQPublisherOptions options)
+    {
         ExchangeDeclareDic = options.ExchangeDeclare?
-            .ToDictionary(k=>k.ExchangeName, v =>v);
+           .ToDictionary(k => k.ExchangeName, v => v);
 
         QueueDeclareDic = options.QueueDeclare
             .ToDictionary(k => k.QueueName, v => v);
+
+        this._options = options;
     }
 
-    // public void Initialize()
-    // {
-    //     
-    // }
 
     public void Dispose()
     {
-        
+
     }
 
-    public void Publish()
+    public async Task<AsyncTaskResult> PublishAsync(IApplicationMessage msg)
     {
-        var message = CreateRabbitMQMessage();
-        
+        var message = CreateRabbitMQMessage(msg);
+        return SendMessageAsync(message);
     }
-
-    public void SendMessageAsync(RabbitMQMessage message)
+    public AsyncTaskResult Publish(IApplicationMessage msg)
     {
-        
+
+        var message = CreateRabbitMQMessage(msg);
+        return SendMessageAsync(message);
     }
 
-    public void SendMessageAsync(RabbitMQMessage message, string exchangeName, string queueName)
+    public AsyncTaskResult SendMessageAsync(RabbitMQMessage message)
+    {
+        var find = FindQueue(message);
+        return SendMessageAsync(message, find.ExchangeName, find.QueueName);
+    }
+
+    //public AsyncTaskResult SendMessageAsync(RabbitMQMessage message, string exchangeName, string queueName)
+    //{
+
+    //}
+
+    public (string ExchangeName, string QueueName) FindQueue(RabbitMQMessage message)
+    {
+        dynamic find = null;
+        if (_options.ExchangeDeclare != null && (find = _options.ExchangeDeclare.FirstOrDefault(x => x.Tag.Contains(message.Tag))) != null)
+        {
+            return ((string)find.ExchangeName, null);
+        }
+        else if (_options.QueueDeclare != null && (find = _options.QueueDeclare.FirstOrDefault(x => x.Tag.Contains(message.Tag))) != null)
+        {
+            return (null, (string)find.QueueName);
+        }
+        else
+        {
+            throw new Exception($"未找到 Tag:{message.Tag} 对应的TagRoute");
+        }
+
+    }
+
+    public AsyncTaskResult SendMessageAsync(RabbitMQMessage message, string exchangeName, string queueName)
     {
         var body = _rabbitMqMessageSerializer.SerializeObject(message);
         try
@@ -59,26 +95,29 @@ public class ApplicationMessagePublisher
             {
                 using (var channel = GetExchangeDeclareChannel(exchangeName))
                 {
-                    channel.BasicPublish(exchange:exchangeName,routingKey:message.Topic,body:body);
+                    channel.BasicPublish(exchange: exchangeName, routingKey: message.Topic, body: body);
                 }
             }
             else if (queueName != null)
             {
                 using (var channel = GetQueueDeclareChannel(queueName))
                 {
-                    channel.BasicPublish(exchange:string.Empty,routingKey:$"Q-{queueName}",body:body);
+                    channel.BasicPublish(exchange: string.Empty, routingKey: $"Q-{queueName}", body: body);
                 }
             }
             else
             {
-                Logger.LogError("未找到 Tag:{0} 对应TagRoute",message.Tag);
+                Logger.LogError("未找到 Tag:{0} 对应TagRoute", message.Tag);
+                return new AsyncTaskResult(AsyncTaskStatus.Failed, $"未找到 Tag:{message.Tag} 对应的TagRoute");
             }
-            
+
             Logger.LogInformation($" [x] Sent {message}");
+            return AsyncTaskResult.Success;
         }
         catch (Exception e)
         {
-            Logger.LogError(e,$"消息发送失败: {message}");
+            Logger.LogError(e, $"消息发送失败: {message}");
+            return new AsyncTaskResult(AsyncTaskStatus.IOException, e.Message);
         }
     }
 
@@ -86,8 +125,8 @@ public class ApplicationMessagePublisher
     {
         var exchangeDeclare = ExchangeDeclareDic[name];
         var channel = ConnectionPool.Get(_options.ConnectionName).CreateModel();
-        channel.ExchangeDeclare(exchange:exchangeDeclare.ExchangeName,type:exchangeDeclare.ExchangeType,
-            durable:_options.Durable,autoDelete:false,arguments:exchangeDeclare.Arguments);
+        channel.ExchangeDeclare(exchange: exchangeDeclare.ExchangeName, type: exchangeDeclare.ExchangeType,
+            durable: _options.Durable, autoDelete: false, arguments: exchangeDeclare.Arguments);
         return channel;
     }
 
@@ -100,8 +139,10 @@ public class ApplicationMessagePublisher
         return channel;
     }
 
-    public RabbitMQMessage CreateRabbitMQMessage()
+    public RabbitMQMessage CreateRabbitMQMessage(IApplicationMessage message)
     {
-        return new RabbitMQMessage();
+        var topic = message.GetRoutingKey() ?? string.Empty;
+        var data = JsonConvert.SerializeObject(message);
+        return new RabbitMQMessage(topic, 4, Encoding.UTF8.GetBytes(data), message.GetType().FullName);
     }
 }
