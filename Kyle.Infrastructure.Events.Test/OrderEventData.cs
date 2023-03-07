@@ -21,4 +21,18 @@ namespace Kyle.Infrastructure.Events.Test
         {
         }
     }
+
+    public class UserEventData : EventData
+    {
+        public UserEventData()
+        {
+        }
+
+        public Guid Id { get; set; }
+
+        public UserEventData(Guid id)
+        {
+            Id = id;
+        }
+    }
 }

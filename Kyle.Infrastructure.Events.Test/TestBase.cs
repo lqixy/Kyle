@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kyle.Infrastructure.Events.Bus;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,10 @@ namespace Kyle.Infrastructure.Events.Test
 {
     public class TestBase
     {
+        protected EventBus EventBus { get; }
         public TestBase()
         {
-            EventsExtensions.AddEventService();
+            EventBus = EventsExtensions.AddEventService();
         }
     }
 }

@@ -15,6 +15,11 @@ namespace Kyle.DependencyAutofac
         {
             var assembiles = Extensions.AssemblyExtensions.GetAssemblies();
 
+            //builder.RegisterAssemblyOpenGenericTypes;
+
+            //builder.RegisterGeneric()
+
+
             builder.RegisterAssemblyTypes(assembiles)
                 .Where(x => x.Name.EndsWith("AppService") || x.Name.EndsWith("Repository"))
                 .AsImplementedInterfaces().SingleInstance()

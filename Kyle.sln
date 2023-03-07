@@ -51,9 +51,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Infrastructure.RabbitM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Infrastructure.Domain", "Kyle.Infrastructure.Domain\Kyle.Infrastructure.Domain.csproj", "{FD46C5FE-C2C8-4019-A381-F03C1C90E09B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Infrastructure.Events", "Kyle.Infrastructure.Events\Kyle.Infrastructure.Events.csproj", "{2FD79779-607C-46EF-A861-615607E3E63E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Infrastructure.Events", "Kyle.Infrastructure.Events\Kyle.Infrastructure.Events.csproj", "{2FD79779-607C-46EF-A861-615607E3E63E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Infrastructure.Events.Test", "Kyle.Infrastructure.Events.Test\Kyle.Infrastructure.Events.Test.csproj", "{491F4062-C264-4FB3-8C1D-932A7EBFCB70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Infrastructure.Events.Test", "Kyle.Infrastructure.Events.Test\Kyle.Infrastructure.Events.Test.csproj", "{491F4062-C264-4FB3-8C1D-932A7EBFCB70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{BC5ED9E6-B80D-4F88-8B6E-01554DD68167}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Demo.Events", "Kyle.Demo.Events\Kyle.Demo.Events.csproj", "{34DCB80E-35EB-4110-8433-D064FE55C3D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -149,6 +153,10 @@ Global
 		{491F4062-C264-4FB3-8C1D-932A7EBFCB70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{491F4062-C264-4FB3-8C1D-932A7EBFCB70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{491F4062-C264-4FB3-8C1D-932A7EBFCB70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34DCB80E-35EB-4110-8433-D064FE55C3D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34DCB80E-35EB-4110-8433-D064FE55C3D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34DCB80E-35EB-4110-8433-D064FE55C3D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34DCB80E-35EB-4110-8433-D064FE55C3D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -177,6 +185,7 @@ Global
 		{FD46C5FE-C2C8-4019-A381-F03C1C90E09B} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 		{2FD79779-607C-46EF-A861-615607E3E63E} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 		{491F4062-C264-4FB3-8C1D-932A7EBFCB70} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
+		{34DCB80E-35EB-4110-8433-D064FE55C3D3} = {BC5ED9E6-B80D-4F88-8B6E-01554DD68167}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12AFE152-B9ED-4907-A6BD-14953312D61B}

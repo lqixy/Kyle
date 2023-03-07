@@ -8,7 +8,8 @@ namespace Kyle.Infrastructure.Events.Test
         [TestMethod]
         public void TestMethod1()
         {
-            EventBus.Default.Trigger(new OrderEventData(Guid.NewGuid()));
+            EventBus.Trigger(new OrderEventData(Guid.NewGuid()));
+            EventBus.Trigger(new UserEventData());
         }
     }
 }

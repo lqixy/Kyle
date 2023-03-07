@@ -13,7 +13,16 @@ namespace Kyle.Infrastructure.Events.Test
         public void HandleEvent(OrderEventData eventData)
         {
             var str = JsonConvert.SerializeObject(eventData);
-            Console.WriteLine($"{eventData.Id}; {str}");
+            Console.WriteLine($"Order: {eventData.Id}; {str}");
+        }
+    }
+
+    public class UserEventHandler : IEventHandler<UserEventData>
+    {
+        public void HandleEvent(UserEventData eventData)
+        {
+            var str = JsonConvert.SerializeObject(eventData);
+            Console.WriteLine($"User: {eventData.Id}; {str}");
         }
     }
 }

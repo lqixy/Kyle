@@ -16,7 +16,7 @@ namespace Kyle.Infrastructure.Events.Stores
 
         public EventStore()
         {
-            _mapping = new ConcurrentDictionary<Type, List<Type>>();
+            _mapping ??= new ConcurrentDictionary<Type, List<Type>>();
         }
 
         public bool IsEmpty => throw new NotImplementedException();
