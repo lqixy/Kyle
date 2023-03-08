@@ -20,12 +20,13 @@ public class ApplicationMessageConsumer//:IDisposable
 
     public ILogger Logger { get; set; }
 
-    public ApplicationMessageConsumer(IConnectionPool connectionPool, RabbitMQMessageSerializer rabbitMqMessageSerializer, ILogger<ApplicationMessageConsumer> logger)
+    public ApplicationMessageConsumer(IConnectionPool connectionPool, RabbitMQMessageSerializer rabbitMqMessageSerializer
+        , ILoggerFactory logger)
     {
         EventBus = new EventBus();
         _rabbitMqMessageSerializer = rabbitMqMessageSerializer;
         ConnectionPool = connectionPool;
-        Logger = logger;
+        Logger = logger.CreateLogger<ApplicationMessageConsumer>();
         Channels = new ConcurrentDictionary<string, IModel>();
     }
 

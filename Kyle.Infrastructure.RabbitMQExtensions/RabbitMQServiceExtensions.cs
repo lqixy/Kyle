@@ -14,6 +14,7 @@ namespace Kyle.Infrastructure.RabbitMQExtensions
 
             builder.RegisterType<RabbitMQMessageSerializer>().SingleInstance();
             builder.RegisterType<RabbitMQOptions>().SingleInstance();
+            builder.RegisterType<ApplicationMessageConsumer>().SingleInstance();
             //builder.RegisterType<ApplicationMessage>().As<IApplicationMessage>();
             builder.RegisterType<ConnectionPool>().As<IConnectionPool>().AsImplementedInterfaces().SingleInstance();
 
@@ -22,6 +23,7 @@ namespace Kyle.Infrastructure.RabbitMQExtensions
             builder.RegisterAssemblyTypes(assemblies)
                 .AsClosedTypesOf(typeof(IMessagePublisher<>))
                 .AsImplementedInterfaces();
+
 
 
             //builder.RegisterType<ApplicationMessagePublisher>().As<IMessagePublisher<IApplicationMessage>>().SingleInstance();
