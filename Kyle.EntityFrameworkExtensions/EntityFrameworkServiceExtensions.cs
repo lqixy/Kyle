@@ -29,6 +29,7 @@ namespace Kyle.EntityFrameworkExtensions
             services.AddDbContext<MallDbContext>(options =>
             {
                 options.UseSqlServer(configuration["ConnectionStrings:Default"]);
+                //options.UseSqlite(configuration["ConnectionStrings:Default"]);
             });
 
 

@@ -57,11 +57,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Infrastructure.Events.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{BC5ED9E6-B80D-4F88-8B6E-01554DD68167}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Demo.Events", "Kyle.Demo.Events\Kyle.Demo.Events.csproj", "{34DCB80E-35EB-4110-8433-D064FE55C3D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Demo.Events", "Kyle.Demo.Events\Kyle.Demo.Events.csproj", "{34DCB80E-35EB-4110-8433-D064FE55C3D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Infrastructure.RabbitMQExtensions.Test", "Kyle.Infrastructure.RabbitMQExtensions.Test\Kyle.Infrastructure.RabbitMQExtensions.Test.csproj", "{1FBB6D5A-B619-426E-BD2A-2082A344C7FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Infrastructure.RabbitMQExtensions.Test", "Kyle.Infrastructure.RabbitMQExtensions.Test\Kyle.Infrastructure.RabbitMQExtensions.Test.csproj", "{1FBB6D5A-B619-426E-BD2A-2082A344C7FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Demo.RabbitMQ.Publisher", "Kyle.Demo.RabbitMQ.Publisher\Kyle.Demo.RabbitMQ.Publisher.csproj", "{CC485D88-3991-434A-AE3C-14DFD99601E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Demo.RabbitMQ.Publisher", "Kyle.Demo.RabbitMQ.Publisher\Kyle.Demo.RabbitMQ.Publisher.csproj", "{CC485D88-3991-434A-AE3C-14DFD99601E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.EntityFrameworkExtensions.Test", "Kyle.EntityFrameworkExtensions.Test\Kyle.EntityFrameworkExtensions.Test.csproj", "{9DBBC212-9773-4893-97E3-3DD6EC5B96F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -169,6 +171,10 @@ Global
 		{CC485D88-3991-434A-AE3C-14DFD99601E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC485D88-3991-434A-AE3C-14DFD99601E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC485D88-3991-434A-AE3C-14DFD99601E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DBBC212-9773-4893-97E3-3DD6EC5B96F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DBBC212-9773-4893-97E3-3DD6EC5B96F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DBBC212-9773-4893-97E3-3DD6EC5B96F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DBBC212-9773-4893-97E3-3DD6EC5B96F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -200,6 +206,7 @@ Global
 		{34DCB80E-35EB-4110-8433-D064FE55C3D3} = {BC5ED9E6-B80D-4F88-8B6E-01554DD68167}
 		{1FBB6D5A-B619-426E-BD2A-2082A344C7FB} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 		{CC485D88-3991-434A-AE3C-14DFD99601E9} = {BC5ED9E6-B80D-4F88-8B6E-01554DD68167}
+		{9DBBC212-9773-4893-97E3-3DD6EC5B96F5} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12AFE152-B9ED-4907-A6BD-14953312D61B}
