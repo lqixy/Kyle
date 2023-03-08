@@ -1,5 +1,5 @@
 using Kyle.AuthServer;
-using Kyle.Infrastructure.ConsulFramework; 
+using Kyle.Infrastructure.ConsulFramework;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +11,7 @@ builder.Services.AddIdentityServer()
     .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>()
     .AddProfileService<ProfileService>()
     ;
- 
+
 var app = builder.Build();
 
 app.UseIdentityServer();
