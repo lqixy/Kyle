@@ -11,7 +11,6 @@
   <ItemGroup>
     <PackageReference Include="IdentityServer4" Version="4.1.2" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Kyle.Infrastructure.ConsulFramework\Kyle.Infrastructure.ConsulFramework.csproj" />
   </ItemGroup>

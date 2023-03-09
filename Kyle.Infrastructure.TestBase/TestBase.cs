@@ -1,8 +1,7 @@
 ﻿using Autofac;
-using Kyle.DependencyAutofac;
 using Kyle.EntityFrameworkExtensions;
 using Kyle.Extensions;
-using Kyle.Members.Domain;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -11,50 +10,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kyle.Members.EntityFramework.Test
+namespace Kyle.Infrastructure.TestBase
 {
     public class TestBase
     {
-        protected ServiceProvider provider;
+        protected IContainer Container;
 
         public TestBase()
         {
+            var assemblies = Extensions.AssemblyExtensions.GetAssemblies();
+
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
-                .Build();
-            ;
+                ;
+
+            var config = configuration.Build();
 
             var services = new ServiceCollection();
-            //services.AddSingleton<IUserQueryRepository, UserQueryRepository>();
-            AutoFac();
-            services.AddEfCore(configuration);
 
+            services.AddDbContext<MallDbContext>(options =>
+            {
+                options.UseSqlServer(config["ConnectionStrings:Default"]);
+            });
 
-            provider = services.BuildServiceProvider();
-        }
-
-        private void AutoFac()
-        {
+            
             var builder = new ContainerBuilder();
-            var assembiles = Extensions.AssemblyExtensions.GetAssemblies();
 
-            builder.RegisterAssemblyTypes(assembiles)
-                .Where(x => x.Name.EndsWith("AppService") || x.Name.EndsWith("Repository"))
-                .AsImplementedInterfaces().SingleInstance()
-                ;
+            //builder.RegisterType<MallDbContext>().As(typeof(DbContext)).InstancePerLifetimeScope();
+
+            builder.RegisterAssemblyTypes(assemblies)
+                           .Where(x => x.Name.EndsWith("AppService") || x.Name.EndsWith("Repository"))
+                           .AsImplementedInterfaces().SingleInstance()
+                           ;
 
             var singletonType = typeof(ISingletonDependency);
             builder
-                .RegisterAssemblyTypes(assembiles)
+                .RegisterAssemblyTypes(assemblies)
                 .Where(x => singletonType.IsAssignableFrom(x) && x != singletonType)
                 .AsImplementedInterfaces().SingleInstance();
 
             var transientType = typeof(ITransientDependency);
             builder
-                .RegisterAssemblyTypes(assembiles)
+                .RegisterAssemblyTypes(assemblies)
                 .Where(x => transientType.IsAssignableFrom(x) && x != transientType)
                 .AsImplementedInterfaces().InstancePerDependency();
+
+            Container = builder.Build();
+
         }
+
+
     }
 }

@@ -25,13 +25,13 @@ namespace Kyle.EntityFrameworkExtensions
 
     public class EfCoreRepositoryBase<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected MallDbContext _context;
+        protected MallDbContext Context;
         protected DbSet<TEntity> dbSet;
 
         public EfCoreRepositoryBase(MallDbContext context)
         {
-            _context = context;
-            dbSet = _context.Set<TEntity>();
+            Context = context;
+            dbSet = Context.Set<TEntity>();
         }
 
         //public override TEntity FirstOrDefault(Func<TEntity, bool> predicate)

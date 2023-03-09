@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Kyle.Infrastructure.Events\Kyle.Infrastructure.Events.csproj" />
+  </ItemGroup>
+
 </Project>

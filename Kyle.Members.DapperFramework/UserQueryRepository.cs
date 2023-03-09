@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Kyle.Members.DapperFramework
 {
-    public class UserQueryRepository : DapperRepositoryBase, IUserQueryRepository
+    public class UserQueryRepository : DapperRepositoryBase //, IUserQueryRepository
     {
         public UserQueryRepository(SqlDbContext sqlDbContext) : base(sqlDbContext)
         {
