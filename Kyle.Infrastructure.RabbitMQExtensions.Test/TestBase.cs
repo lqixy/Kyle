@@ -21,14 +21,14 @@ namespace Kyle.Infrastructure.RabbitMQExtensions.Test
             //    .AddLogging()
             //    ;
 
-            EventsExtensions.AddEventService();
+            EventsExtensions.AddEvents();
 
             var builder = new ContainerBuilder();
             builder.RegisterType<NullLoggerFactory>().As<ILoggerFactory>().SingleInstance();
             RabbitMQServiceExtensions.AddRabbitMQ(builder);
 
             Container = builder.Build();
-             
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Kyle.Infrastructure.Events;
+﻿using Kyle.Infrastructure;
+using Kyle.Infrastructure.Events;
 using Kyle.Members.Domain.Events;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace Kyle.Members.Domain
         {
             UserId = Guid.NewGuid();
             UserName = userName;
-            Password = password;
+            Pwd = password;
             TenantId = tenantId;
             RegDate = DateTime.Now;
         }
@@ -32,7 +33,7 @@ namespace Kyle.Members.Domain
 
         public string UserName { get; set; }
 
-        public string Password { get; set; }
+        public string Pwd { get; set; }
 
         public Guid TenantId { get; set; }
 

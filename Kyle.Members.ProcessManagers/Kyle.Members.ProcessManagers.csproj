@@ -7,10 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Kyle.Encrypt.Application.Constructs\Kyle.Encrypt.Application.Constructs.csproj" />
-    <ProjectReference Include="..\Kyle.Extensions\Kyle.Extensions.csproj" />
-    <ProjectReference Include="..\Kyle.Members.Application.Constructs\Kyle.Members.Application.Constructs.csproj" />
     <ProjectReference Include="..\Kyle.Members.Domain\Kyle.Members.Domain.csproj" />
+    <ProjectReference Include="..\Kyle.Members.Messages\Kyle.Members.Messages.csproj" />
   </ItemGroup>
 
 </Project>

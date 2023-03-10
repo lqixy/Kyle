@@ -1,20 +1,19 @@
 ﻿using Kyle.Infrastructure;
-using Kyle.Infrastructure.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kyle.Members.Domain.Events
+namespace Kyle.Members.Messages
 {
-    public class UserRegisteredHaveRecord : EventData
+    public class UserRegisteredMessage : EventData
     {
-        public UserRegisteredHaveRecord()
+        public UserRegisteredMessage()
         {
         }
 
-        public UserRegisteredHaveRecord(Guid userId, Guid tenantId)
+        public UserRegisteredMessage(Guid userId, Guid tenantId)
         {
             UserId = userId;
             TenantId = tenantId;

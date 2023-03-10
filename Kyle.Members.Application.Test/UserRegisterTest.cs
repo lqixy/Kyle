@@ -1,7 +1,8 @@
 ﻿using Autofac;
+using Kyle.Extensions.Exceptions;
 using Kyle.Infrastructure.TestBase;
 using Kyle.Members.Application.Constructs;
-using Moq;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace Kyle.Members.Application.Test
         public UserRegisterTest()
         {
             _userRegisterAppService = Container.Resolve<IUserRegisterAppService>();
+            //_userRegisterAppService = Provider.GetRequiredService<IUserRegisterAppService>();
         }
 
 
@@ -27,11 +29,14 @@ namespace Kyle.Members.Application.Test
         {
             //var input = new Mock<RegisterInputDto>();
             //input.Setup().
-            await _userRegisterAppService.Register(new RegisterInputDto()
+            var input = new RegisterInputDto()
             {
-                UserName = "kyle",
+                UserName = "tom",
                 Password = "123456"
-            });
+            };
+            await _userRegisterAppService.Register(input);
+
+            //await Assert.ThrowsExceptionAsync<UserFriendlyException>(async () => await _userRegisterAppService.Register(input));
         }
     }
 }

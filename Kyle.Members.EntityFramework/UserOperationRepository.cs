@@ -1,5 +1,6 @@
 ﻿using Kyle.EntityFrameworkExtensions;
 using Kyle.Members.Domain;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,4 +30,9 @@ namespace Kyle.Members.EntityFramework
         }
 
     }
+
+    //public class DbContextInterceptor : SaveChangesInterceptor
+    //{
+    //    public override 
+    //}
 }
