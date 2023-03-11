@@ -13,12 +13,18 @@ namespace Kyle.DependencyAutofac
     {
         public static IServiceCollection AddAutofac(this IServiceCollection services, ContainerBuilder builder)
         {
+           RegisterAssemblies(builder);
+            return services;
+        }
+
+        public static void AddAutofac(this ContainerBuilder builder)
+        {
+            RegisterAssemblies(builder);
+        }
+
+        private static void RegisterAssemblies(ContainerBuilder builder)
+        {
             var assembiles = Extensions.AssemblyExtensions.GetAssemblies();
-
-            //builder.RegisterAssemblyOpenGenericTypes;
-
-            //builder.RegisterGeneric()
-
 
             builder.RegisterAssemblyTypes(assembiles)
                 .Where(x => x.Name.EndsWith("AppService") || x.Name.EndsWith("Repository"))
@@ -36,13 +42,6 @@ namespace Kyle.DependencyAutofac
                 .RegisterAssemblyTypes(assembiles)
                 .Where(x => transientType.IsAssignableFrom(x) && x != transientType)
                 .AsImplementedInterfaces().InstancePerDependency();
-
-            return services;
         }
-
-        //public static void AddAutofacModule()
-        //{
-
-        //}
     }
 }

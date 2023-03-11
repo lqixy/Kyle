@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Kyle.DependencyAutofac;
 using Kyle.EntityFrameworkExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,7 @@ namespace Kyle.Infrastructure.TestBase
 
             var builder = new ContainerBuilder();
 
+            builder.AddAutofac();
             builder.AddMediator();
             builder.RegisterType<LoggerFactory>().As<ILoggerFactory>().SingleInstance();
 
