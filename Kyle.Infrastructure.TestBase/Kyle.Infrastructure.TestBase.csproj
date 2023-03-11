@@ -16,8 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Kyle.DependencyAutofac\Kyle.DependencyAutofac.csproj" />
     <ProjectReference Include="..\Kyle.EntityFrameworkExtensions\Kyle.EntityFrameworkExtensions.csproj" />
     <ProjectReference Include="..\Kyle.Extensions\Kyle.Extensions.csproj" />
+    <ProjectReference Include="..\Kyle.Infrastructure.Mediators\Kyle.Infrastructure.Mediators.csproj" />
   </ItemGroup>
 
 </Project>

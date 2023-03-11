@@ -1,13 +1,6 @@
 ﻿using Autofac;
-using Kyle.Infrastructure.Events;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kyle.Infrastructure.RabbitMQExtensions.Test
 {
@@ -21,7 +14,7 @@ namespace Kyle.Infrastructure.RabbitMQExtensions.Test
             //    .AddLogging()
             //    ;
 
-            EventsExtensions.AddEvents();
+            // EventsExtensions.AddEvents();
 
             var builder = new ContainerBuilder();
             builder.RegisterType<NullLoggerFactory>().As<ILoggerFactory>().SingleInstance();

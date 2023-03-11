@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Kyle.Extensions\Kyle.Extensions.csproj" />
-    <ProjectReference Include="..\Kyle.Infrastructure\Kyle.Infrastructure.csproj" />
+    <ProjectReference Include="..\Kyle.Infrastructure.Mediators\Kyle.Infrastructure.Mediators.csproj" />
   </ItemGroup>
 
 </Project>

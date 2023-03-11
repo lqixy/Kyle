@@ -1,13 +1,7 @@
-﻿using Kyle.Infrastructure;
-using Kyle.Infrastructure.Events;
-using Kyle.Members.Domain.Events;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Kyle.EntityFrameworkExtensions;
+using Kyle.Members.Domain.Events;
 
 namespace Kyle.Members.Domain
 {
@@ -39,7 +33,7 @@ namespace Kyle.Members.Domain
 
         public DateTime RegDate { get; set; }
 
-        public override string AggregateRootId => $"{UserId}";
+        // public override string AggregateRootId => $"{UserId}";
 
         //public DateTime CreationTime { get; set; } = DateTime.Now;
 
@@ -48,5 +42,6 @@ namespace Kyle.Members.Domain
             ApplyEvent(new UserRegisteredHaveRecord(this.UserId, this.TenantId));
         }
 
+        // public override string AggregateRootId => $"";
     }
 }

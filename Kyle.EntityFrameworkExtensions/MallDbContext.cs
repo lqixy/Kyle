@@ -1,30 +1,16 @@
-﻿using Kyle.Extensions;
-using Kyle.Infrastructure;
-using Kyle.Infrastructure.Commanding;
-using Kyle.Infrastructure.Events;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using MediatR;
 
 namespace Kyle.EntityFrameworkExtensions
 {
     public class MallDbContext : DbContext
     {
-
-        //private readonly ICommandSender commandSender;
-        public IEventBus EventBus { get; set; } = new EventBus();
-        private readonly IEventBus eventBus;
-
-        public MallDbContext(DbContextOptions<MallDbContext> dbContext) : base(dbContext)
+        private readonly IMediator _mediator;
+        public MallDbContext(DbContextOptions<MallDbContext> dbContext, IMediator mediator) : base(dbContext)
         {
-            this.eventBus = eventBus;
+            _mediator = mediator;
             //this.commandSender = commandSender;
         }
 
@@ -71,9 +57,9 @@ namespace Kyle.EntityFrameworkExtensions
             var domainEvents = aggregateRoot.DomainEvents.ToList();
             aggregateRoot.DomainEvents.Clear();
 
-            foreach (var domainEvent in domainEvents.Where(x => !x.IsPublisher))
+            foreach (var domainEvent in domainEvents)
             {
-                eventBus.Trigger(domainEvent.GetType(), domainEvent);
+                _mediator.Send(domainEvent);
             }
         }
 

@@ -4,9 +4,16 @@
     <projectFile profileName="http">Kyle.AuthServer/Kyle.AuthServer.csproj</projectFile>
     <projectFile profileName="https">Kyle.AuthServer/Kyle.AuthServer.csproj</projectFile>
     <projectFile>Kyle.DIDemo/Kyle.DIDemo.csproj</projectFile>
+    <projectFile>Kyle.Demo.Events/Kyle.Demo.Events.csproj</projectFile>
+    <projectFile>Kyle.Demo.RabbitMQ.Publisher/Kyle.Demo.RabbitMQ.Publisher.csproj</projectFile>
+    <projectFile>Kyle.Demo.Secrets/Kyle.Demo.Secrets.csproj</projectFile>
+    <projectFile profileName="Kyle.Extensions">Kyle.Extensions/Kyle.Extensions.csproj</projectFile>
     <projectFile profileName="http">Kyle.Gateway/Kyle.Gateway.csproj</projectFile>
     <projectFile profileName="http">Kyle.Mall/Kyle.Mall.csproj</projectFile>
     <projectFile profileName="https">Kyle.Mall/Kyle.Mall.csproj</projectFile>
+    <projectFile profileName="Kyle.Members.Application">Kyle.Members.Application/Kyle.Members.Application.csproj</projectFile>
+    <projectFile profileName="Kyle.Members.Domain">Kyle.Members.Domain/Kyle.Members.Domain.csproj</projectFile>
+    <projectFile profileName="Kyle.Members.EntityFramework">Kyle.Members.EntityFramework/Kyle.Members.EntityFramework.csproj</projectFile>
     <projectFile>Kyle.RabbitMQDemo.Consumer/Kyle.RabbitMQDemo.Consumer.csproj</projectFile>
     <projectFile>Kyle.RabbitMQDemo.Producer/Kyle.RabbitMQDemo.Producer.csproj</projectFile>
     <projectFile>Kyle.RabbitMQDemo/Kyle.RabbitMQDemo.csproj</projectFile>
@@ -15,6 +22,17 @@
   <component name="ChangeListManager">
     <list default="true" id="23b9947f-4f70-4836-a362-6358f2a3dbc6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kyle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kyle/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/Kyle.EntityFrameworkExtensions.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/Kyle.EntityFrameworkExtensions.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/MallDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/MallDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.RabbitMQExtensions.Test/TestBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Infrastructure.RabbitMQExtensions.Test/TestBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.TestBase/Kyle.Infrastructure.TestBase.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Infrastructure.TestBase/Kyle.Infrastructure.TestBase.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.TestBase/TestBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Infrastructure.TestBase/TestBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.Domain/Entities/UserInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Domain/Entities/UserInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.Domain/Events/UserRegisteredHaveRecord.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.Domain/Kyle.Members.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Domain/Kyle.Members.Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.Messages/Kyle.Members.Messages.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Messages/Kyle.Members.Messages.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.Messages/UserRegisteredMessage.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.ProcessManagers/UserEventHandler.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Kyle.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +41,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Kyle.Infrastructure.Events.Test/TestBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Kyle.Infrastructure.Events.Test/UnitTest1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Kyle.Infrastructure.Events/EventsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Kyle.Infrastructure/AggregateRoot.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Kyle.Infrastructure/IAggregateRoot.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Kyle.Infrastructure/IEntity.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9a70be748b254550a3a4c27cc99af01b1a00/54/9ca8c730/ContainerBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b81816a0282044d896afd8e1fea8ea9aec00/2d/06924ce0/DependencyScopeNotConfiguredException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6627dc668649fcf591c5d8f92782510f3cbfd8d8cbbbf6162656612ef5701c/ServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ae1fc9fef226561b2c12f5f46d449b903be36ed79f8c2d070eee18575cee/ConnectionFactory.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -66,6 +93,60 @@
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/Kyle.DIDemo/Kyle.DIDemo.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Kyle.Demo.Events" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Kyle.Demo.Events/Kyle.Demo.Events.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Kyle.Demo.RabbitMQ.Publisher" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Kyle.Demo.RabbitMQ.Publisher/Kyle.Demo.RabbitMQ.Publisher.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Kyle.Demo.Secrets" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Kyle.Demo.Secrets/Kyle.Demo.Secrets.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
@@ -235,6 +316,8 @@
       <workItem from="1677847956884" duration="7733000" />
       <workItem from="1677978659195" duration="12335000" />
       <workItem from="1678007491624" duration="3539000" />
+      <workItem from="1678436412332" duration="1729000" />
+      <workItem from="1678495666196" duration="5518000" />
     </task>
     <task id="LOCAL-00001" summary="rediskey修改">
       <created>1677676071552</created>

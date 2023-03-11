@@ -81,11 +81,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Encrypt.Application.Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kyle.Members.Application.Test", "Kyle.Members.Application.Test\Kyle.Members.Application.Test.csproj", "{784B0859-DEE9-45E0-A9E6-9B6C39875AA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Infrastructure", "Kyle.Infrastructure\Kyle.Infrastructure.csproj", "{72DDAB7E-FBC0-4334-8FEF-02A946FC80EC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Members.Messages", "Kyle.Members.Messages\Kyle.Members.Messages.csproj", "{C74419BE-1016-4104-95B9-05902EA467F4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Members.ProcessManagers", "Kyle.Members.ProcessManagers\Kyle.Members.ProcessManagers.csproj", "{D96BB2D0-AB21-4F79-8400-7129E25F1205}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Infrastructure.Mediators", "Kyle.Infrastructure.Mediators\Kyle.Infrastructure.Mediators.csproj", "{6EB9473E-02CF-416D-9342-03C648B8FD73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kyle.Infrastructure.Mediators.Test", "Kyle.Infrastructure.Mediators.Test\Kyle.Infrastructure.Mediators.Test.csproj", "{EDF58AF3-AE50-4F4D-9734-6D634631A724}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -221,10 +223,6 @@ Global
 		{784B0859-DEE9-45E0-A9E6-9B6C39875AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{784B0859-DEE9-45E0-A9E6-9B6C39875AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{784B0859-DEE9-45E0-A9E6-9B6C39875AA0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{72DDAB7E-FBC0-4334-8FEF-02A946FC80EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72DDAB7E-FBC0-4334-8FEF-02A946FC80EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72DDAB7E-FBC0-4334-8FEF-02A946FC80EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72DDAB7E-FBC0-4334-8FEF-02A946FC80EC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C74419BE-1016-4104-95B9-05902EA467F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C74419BE-1016-4104-95B9-05902EA467F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C74419BE-1016-4104-95B9-05902EA467F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -233,6 +231,14 @@ Global
 		{D96BB2D0-AB21-4F79-8400-7129E25F1205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D96BB2D0-AB21-4F79-8400-7129E25F1205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D96BB2D0-AB21-4F79-8400-7129E25F1205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EB9473E-02CF-416D-9342-03C648B8FD73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EB9473E-02CF-416D-9342-03C648B8FD73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EB9473E-02CF-416D-9342-03C648B8FD73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EB9473E-02CF-416D-9342-03C648B8FD73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDF58AF3-AE50-4F4D-9734-6D634631A724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDF58AF3-AE50-4F4D-9734-6D634631A724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDF58AF3-AE50-4F4D-9734-6D634631A724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDF58AF3-AE50-4F4D-9734-6D634631A724}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -273,9 +279,10 @@ Global
 		{F311E97B-8D50-4906-AA89-5459E43B0307} = {D411D511-F527-4D5F-AD6E-084F3D6DC21C}
 		{99CBA577-3879-4C19-9B9C-49FCE891FAD3} = {D411D511-F527-4D5F-AD6E-084F3D6DC21C}
 		{784B0859-DEE9-45E0-A9E6-9B6C39875AA0} = {35B4F2B5-C1C7-4118-86F6-E74DA50819D5}
-		{72DDAB7E-FBC0-4334-8FEF-02A946FC80EC} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 		{C74419BE-1016-4104-95B9-05902EA467F4} = {35B4F2B5-C1C7-4118-86F6-E74DA50819D5}
 		{D96BB2D0-AB21-4F79-8400-7129E25F1205} = {35B4F2B5-C1C7-4118-86F6-E74DA50819D5}
+		{6EB9473E-02CF-416D-9342-03C648B8FD73} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
+		{EDF58AF3-AE50-4F4D-9734-6D634631A724} = {3D508119-0CB6-4D2C-9BB7-C92850446875}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12AFE152-B9ED-4907-A6BD-14953312D61B}
