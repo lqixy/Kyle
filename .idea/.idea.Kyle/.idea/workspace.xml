@@ -22,44 +22,16 @@
     <projectFile>Kyle.RedisDemo/Kyle.RedisDemo.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23b9947f-4f70-4836-a362-6358f2a3dbc6" name="Changes" comment="">
+    <list default="true" id="23b9947f-4f70-4836-a362-6358f2a3dbc6" name="Changes" comment="使用MediatR/DotnetCore.CAP">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kyle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kyle/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Demo.RabbitMQ.Publisher/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Demo.RabbitMQ.Publisher/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.DependencyAutofac/AutofacExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.DependencyAutofac/AutofacExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.DependencyServiceCollection/Kyle.DependencyServiceCollection.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.DependencyServiceCollection/Kyle.DependencyServiceCollection.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.DependencyServiceCollection/ServiceCollectionException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.DependencyServiceCollection/ServiceCollectionException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/AggregateRoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/AggregateRoot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/IAggregateRoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/IAggregateRoot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/Kyle.EntityFrameworkExtensions.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/Kyle.EntityFrameworkExtensions.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/MallDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/MallDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/AggregateRoot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Bus/EventBus.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Bus/IEventBus.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/EventsExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Handlers/ActionEventHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Handlers/IEventHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/IAggregateRoot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/IEntity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/IEventData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Infrastructure.Events/IEventData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Extensions/Kyle.Extensions.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Extensions/Kyle.Extensions.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Kyle.Infrastructure.Events.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Kyle.Infrastructure.Events.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Stores/EventStore.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Stores/IEventStore.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.TestBase/Kyle.Infrastructure.TestBase.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Infrastructure.TestBase/Kyle.Infrastructure.TestBase.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.TestBase/TestBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Infrastructure.TestBase/TestBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Mall/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Mall/Controllers/AccountController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Mall/Kyle.Mall.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Mall/Kyle.Mall.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Mediators/Kyle.Infrastructure.Mediators.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Infrastructure.Mediators/Kyle.Infrastructure.Mediators.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Kyle.Mall/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Mall/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Mall/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Mall/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Members.Application.Test/Kyle.Members.Application.Test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Application.Test/Kyle.Members.Application.Test.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Members.Application.Test/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Application.Test/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Members.Application/UserAppService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Application/UserAppService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Members.Domain/Entities/UserInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Domain/Entities/UserInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Members.Domain/Entities/UserRegisterRecord.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Domain/Entities/UserRegisterRecord.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Members.Domain/Events/UserRegisteredHaveRecord.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Domain/Events/UserRegistered.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Members.EntityFramework/EventHandlers/UserEventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.EntityFramework/EventHandlers/UserEventHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Members.EntityFramework/UserQueryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.EntityFramework/UserQueryRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.Members.Messages/Kyle.Members.Messages.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Messages/Kyle.Members.Messages.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kyle.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.MessagePublishers/UserMessagePublisher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.MessagePublishers/UserMessagePublisher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Scores.ProcessManagers/ScoreEventHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Scores.ProcessManagers/ScoreSubscribeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Scores.ProcessManagers/ScoreSubscribeService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +50,7 @@
     <setting file="file://$PROJECT_DIR$/Kyle.Infrastructure.Events.Test/TestBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Kyle.Infrastructure.Events.Test/UnitTest1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Kyle.Infrastructure.RabbitMQExtensions/ApplicationMessageConsumer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/liuqi/Desktop/Project/CSharp/develop/Kyle/Kyle.Mall/Controllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Kyle.Scores.Messages/ScoreChangeMessage.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/308c7dd79c6e45d6a79a92ba50fc748daa88/bd/082d9a01/ServiceCollectionServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4472e9d6a19b4c92bcc9a80bd60ca17d26da8/a0/7d4909d7/TestMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
@@ -397,7 +370,7 @@
       <workItem from="1678007491624" duration="3539000" />
       <workItem from="1678436412332" duration="1729000" />
       <workItem from="1678495666196" duration="20026000" />
-      <workItem from="1678670574244" duration="15550000" />
+      <workItem from="1678670574244" duration="18812000" />
     </task>
     <task id="LOCAL-00001" summary="rediskey修改">
       <created>1677676071552</created>
@@ -441,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678505689810</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="使用MediatR/DotnetCore.CAP">
+      <created>1678695416685</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678695416685</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -457,7 +437,8 @@
     <MESSAGE value="使用MediatR" />
     <MESSAGE value="领域事件个性" />
     <MESSAGE value="TestBase依赖注入个性" />
-    <option name="LAST_COMMIT_MESSAGE" value="TestBase依赖注入个性" />
+    <MESSAGE value="使用MediatR/DotnetCore.CAP" />
+    <option name="LAST_COMMIT_MESSAGE" value="使用MediatR/DotnetCore.CAP" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -503,39 +484,39 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Kyle.Members.MessagePublishers/UserMessagePublisher.cs</url>
-          <line>18</line>
+          <line>20</line>
           <properties documentPath="$PROJECT_DIR$/Kyle.Members.MessagePublishers/UserMessagePublisher.cs" initialLine="18" containingFunctionPresentation="method 'Handle'">
             <startOffsets>
-              <option value="476" />
+              <option value="568" />
             </startOffsets>
             <endOffsets>
-              <option value="532" />
+              <option value="624" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Kyle.Members.MessagePublishers/UserMessagePublisher.cs</url>
-          <line>17</line>
+          <line>19</line>
           <properties documentPath="$PROJECT_DIR$/Kyle.Members.MessagePublishers/UserMessagePublisher.cs" initialLine="17" containingFunctionPresentation="method 'Handle'">
             <startOffsets>
-              <option value="466" />
+              <option value="558" />
             </startOffsets>
             <endOffsets>
-              <option value="467" />
+              <option value="559" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Kyle.Scores.ProcessManagers/ScoreSubscribeService.cs</url>
-          <line>19</line>
+          <line>20</line>
           <properties documentPath="$PROJECT_DIR$/Kyle.Scores.ProcessManagers/ScoreSubscribeService.cs" initialLine="19" containingFunctionPresentation="method 'ChangeScore'">
             <startOffsets>
-              <option value="514" />
+              <option value="570" />
             </startOffsets>
             <endOffsets>
-              <option value="599" />
+              <option value="655" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="12" />

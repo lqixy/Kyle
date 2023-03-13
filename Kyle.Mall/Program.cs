@@ -13,6 +13,7 @@ using Kyle.Mall.Extensions;
 using Kyle.Mall.Filters;
 using Kyle.EntityFrameworkExtensions;
 using Kyle.Infrastructure.CAP;
+using Kyle.Infrastructure.Events;
 using Kyle.Infrastructure.Mediators;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,6 +34,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCAPService(builder.Configuration);
 
 builder.Services.AddServices();
+builder.Services.AddEvents();
 builder.AddSerilogLogger();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -52,6 +54,7 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .ConfigureContainer<ContainerBuilder>(x =>
     {
         x.AddMediator();
+        x.AddEvents();
         builder.Services.AddAutofac(x);
     })
     ;

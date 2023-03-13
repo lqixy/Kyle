@@ -1,5 +1,6 @@
 using DotNetCore.CAP;
 using Kyle.Extensions;
+using Kyle.Infrastructure.CAP;
 using Kyle.Scores.Domain;
 using Kyle.Scores.Domain.Entities;
 
@@ -14,7 +15,7 @@ public class ScoreSubscribeService: ISubscribeTransientDependency, ICapSubscribe
         _repository = repository;
     }
 
-    [CapSubscribe("Q-Test")]
+    [CapSubscribe(CAPMessageNamedConst.MESSAGE_NAME)]
     public async Task ChangeScore(ScoreChangeMessage message)
     {
         await _repository.Insert(new ScoreRecord(message.Type,message.Score,message.Reason));

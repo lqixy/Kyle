@@ -1,22 +1,23 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection;
-using DotNetCore.CAP;
-using MediatR;
-using Microsoft.Extensions.Logging;
+using Kyle.Infrastructure.Events;
 
 namespace Kyle.EntityFrameworkExtensions
 {
     public class MallDbContext : DbContext
     {
-        private readonly IMediator _mediator;
-        private readonly ILogger _logger;
-        public MallDbContext(DbContextOptions<MallDbContext> dbContext, IMediator mediator
-            ,ILogger<MallDbContext> logger
+        private readonly IEventBus _eventBus;
+        // private readonly IMediator _mediator;
+        // private readonly ILogger _logger;
+        public MallDbContext(DbContextOptions<MallDbContext> dbContext, IEventBus eventBus
+            // , IMediator mediator
+            // ,ILogger<MallDbContext> logger
             ) : base(dbContext)
         {
-            _mediator = mediator;
-            _logger = logger;
+            _eventBus = eventBus;
+            // _mediator = mediator;
+            // _logger = logger;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -67,8 +68,9 @@ namespace Kyle.EntityFrameworkExtensions
             {
                 if (!domainEvent.IsPublisher)
                 {
-                    _logger.LogInformation($"Event Send:{domainEvent}");
-                    await _mediator.Publish(domainEvent);
+                    // _logger.LogInformation($"Event Send:{domainEvent}");
+                    // await _mediator.Publish(domainEvent);
+                    await _eventBus.Send(domainEvent);
                 }
                 // else if (domainEvent.IsPublisher)
                 //     await _capPublisher.PublishAsync("Q-Test",domainEvent);
