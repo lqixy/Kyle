@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Kyle.Extensions\Kyle.Extensions.csproj" />
+    <ProjectReference Include="..\Kyle.Infrastructure.CAP\Kyle.Infrastructure.CAP.csproj" />
+    <ProjectReference Include="..\Kyle.Infrastructure.Events\Kyle.Infrastructure.Events.csproj" />
     <ProjectReference Include="..\Kyle.Infrastructure.Mediators\Kyle.Infrastructure.Mediators.csproj" />
   </ItemGroup>
 

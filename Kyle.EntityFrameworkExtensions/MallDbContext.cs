@@ -1,17 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection;
+using DotNetCore.CAP;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace Kyle.EntityFrameworkExtensions
 {
     public class MallDbContext : DbContext
     {
         private readonly IMediator _mediator;
-        public MallDbContext(DbContextOptions<MallDbContext> dbContext, IMediator mediator) : base(dbContext)
+        private readonly ILogger _logger;
+        public MallDbContext(DbContextOptions<MallDbContext> dbContext, IMediator mediator
+            ,ILogger<MallDbContext> logger
+            ) : base(dbContext)
         {
             _mediator = mediator;
-            //this.commandSender = commandSender;
+            _logger = logger;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -24,7 +29,8 @@ namespace Kyle.EntityFrameworkExtensions
         {
             var assemblies = Kyle.Extensions.AssemblyExtensions.GetAssemblies();
 
-            var types = assemblies.SelectMany(x => x.GetTypes().Where(c => c.GetCustomAttributes<TableAttribute>().Any()).ToArray());
+            var types = assemblies.SelectMany(x =>
+                x.GetTypes().Where(c => c.GetCustomAttributes<TableAttribute>().Any()).ToArray());
             var list = types?.Where(x => x.IsClass && !x.IsAbstract && !x.IsGenericType).ToList();
 
             if (list != null && list.Any())
@@ -46,20 +52,26 @@ namespace Kyle.EntityFrameworkExtensions
             {
                 //var messageData = new MessageData { CommandName = item.GetType().FullName, MessageDataBody = JToken.FromObject(item) };
                 //commandSender.PublishMessage(messageData);
-                TriggerDomainEvents(item);
+                await TriggerDomainEvents(item);
             }
 
             return await base.SaveChangesAsync(cancellationToken);
         }
 
-        private void TriggerDomainEvents(AggregateRoot aggregateRoot)
+        private async Task TriggerDomainEvents(AggregateRoot aggregateRoot)
         {
             var domainEvents = aggregateRoot.DomainEvents.ToList();
             aggregateRoot.DomainEvents.Clear();
 
             foreach (var domainEvent in domainEvents)
             {
-                _mediator.Send(domainEvent);
+                if (!domainEvent.IsPublisher)
+                {
+                    _logger.LogInformation($"Event Send:{domainEvent}");
+                    await _mediator.Publish(domainEvent);
+                }
+                // else if (domainEvent.IsPublisher)
+                //     await _capPublisher.PublishAsync("Q-Test",domainEvent);
             }
         }
 
@@ -70,6 +82,5 @@ namespace Kyle.EntityFrameworkExtensions
         //        ;
         //    return base.SaveChanges();
         //}
-
     }
 }

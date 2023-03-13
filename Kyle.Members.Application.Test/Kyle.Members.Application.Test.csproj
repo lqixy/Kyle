@@ -20,6 +20,8 @@
     <ProjectReference Include="..\Kyle.Infrastructure.TestBase\Kyle.Infrastructure.TestBase.csproj" />
     <ProjectReference Include="..\Kyle.Members.Application\Kyle.Members.Application.csproj" />
     <ProjectReference Include="..\Kyle.Members.EntityFramework\Kyle.Members.EntityFramework.csproj" />
+    <ProjectReference Include="..\Kyle.Members.MessagePublishers\Kyle.Members.MessagePublishers.csproj" />
+    <ProjectReference Include="..\Kyle.Scores.ProcessManagers\Kyle.Scores.ProcessManagers.csproj" />
   </ItemGroup>
 
   <ItemGroup>

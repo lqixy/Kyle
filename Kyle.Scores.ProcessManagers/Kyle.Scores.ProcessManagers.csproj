@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Kyle.Extensions\Kyle.Extensions.csproj" />
+      <ProjectReference Include="..\Kyle.Infrastructure.CAP\Kyle.Infrastructure.CAP.csproj" />
+      <ProjectReference Include="..\Kyle.Scores.Domain\Kyle.Scores.Domain.csproj" />
+      <ProjectReference Include="..\Kyle.Scores.Messages\Kyle.Scores.Messages.csproj" />
+    </ItemGroup>
+
+</Project>

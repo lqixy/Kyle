@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using Kyle.EntityFrameworkExtensions.Events;
+using Kyle.Infrastructure.Events;
 using MediatR;
 
 namespace Kyle.EntityFrameworkExtensions;
@@ -9,20 +11,25 @@ public abstract class AggregateRoot: IAggregateRoot
     // public abstract  string AggregateRootId { get; set; }
     //
     [NotMapped]
-    public virtual Queue<IRequest> DomainEvents { get; set; }
+    public virtual Queue<IEventData> DomainEvents { get; set; }
     
     public int Version { get; set; }
 
     public AggregateRoot()
     {
-        DomainEvents = new Queue<IRequest>();
+        DomainEvents = new Queue<IEventData>();
     }
 
-    public void ApplyEvent(IRequest data)
+    public void ApplyEvent(IEventData data)
     {
         DomainEvents.Enqueue(data);
     }
 }
+
+// public interface IEventData : IRequest
+// {
+//     
+// }
 
 public abstract class AggregateRoot<TKey> : AggregateRoot
 {

@@ -1,4 +1,5 @@
 using Kyle.DependencyAutofac;
+using Kyle.DependencyServiceCollection;
 using Kyle.Infrastructure.ConsulFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 //using Kyle.DapperFrameworkExtensions;
@@ -11,6 +12,8 @@ using Kyle.Mall;
 using Kyle.Mall.Extensions;
 using Kyle.Mall.Filters;
 using Kyle.EntityFrameworkExtensions;
+using Kyle.Infrastructure.CAP;
+using Kyle.Infrastructure.Mediators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +28,11 @@ builder.Services.AddControllers(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+// builder.Services.AddLogging();
+// builder.Services.AddSingleton<ILoggerFactory, LoggerFactory>();
+builder.Services.AddCAPService(builder.Configuration);
 
+builder.Services.AddServices();
 builder.AddSerilogLogger();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -44,6 +51,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .ConfigureContainer<ContainerBuilder>(x =>
     {
+        x.AddMediator();
         builder.Services.AddAutofac(x);
     })
     ;
@@ -64,7 +72,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseAuthentication();
+// app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

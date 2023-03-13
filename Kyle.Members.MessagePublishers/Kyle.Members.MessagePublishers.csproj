@@ -7,7 +7,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Kyle.Infrastructure.CAP\Kyle.Infrastructure.CAP.csproj" />
       <ProjectReference Include="..\Kyle.Infrastructure.Mediators\Kyle.Infrastructure.Mediators.csproj" />
+      <ProjectReference Include="..\Kyle.Members.Domain\Kyle.Members.Domain.csproj" />
+      <ProjectReference Include="..\Kyle.Members.Messages\Kyle.Members.Messages.csproj" />
     </ItemGroup>
 
 </Project>

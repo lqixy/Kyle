@@ -7,7 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Kyle.Infrastructure.Mediators\Kyle.Infrastructure.Mediators.csproj" />
+      <ProjectReference Include="..\Kyle.EntityFrameworkExtensions\Kyle.EntityFrameworkExtensions.csproj" />
+      <ProjectReference Include="..\Kyle.Scores.Domain\Kyle.Scores.Domain.csproj" />
     </ItemGroup>
 
 </Project>

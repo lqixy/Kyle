@@ -16,12 +16,18 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Kyle.DependencyAutofac\Kyle.DependencyAutofac.csproj" />
+    <ProjectReference Include="..\Kyle.DependencyServiceCollection\Kyle.DependencyServiceCollection.csproj" />
+    <ProjectReference Include="..\Kyle.Encrypt.Application\Kyle.Encrypt.Application.csproj" />
     <ProjectReference Include="..\Kyle.Extensions\Kyle.Extensions.csproj" />
     <ProjectReference Include="..\Kyle.Infrastructure.ConsulFramework\Kyle.Infrastructure.ConsulFramework.csproj" />
     <ProjectReference Include="..\Kyle.Infrastructure.RedisExtensions\Kyle.Infrastructure.RedisExtensions.csproj" />
     <ProjectReference Include="..\Kyle.LoggerSerilog\Kyle.LoggerSerilog.csproj" />
     <ProjectReference Include="..\Kyle.Members.Application\Kyle.Members.Application.csproj" />
     <ProjectReference Include="..\Kyle.Members.EntityFramework\Kyle.Members.EntityFramework.csproj" />
+    <ProjectReference Include="..\Kyle.Members.MessagePublishers\Kyle.Members.MessagePublishers.csproj" />
+    <ProjectReference Include="..\Kyle.Scores.Application\Kyle.Scores.Application.csproj" />
+    <ProjectReference Include="..\Kyle.Scores.EntityFramework\Kyle.Scores.EntityFramework.csproj" />
+    <ProjectReference Include="..\Kyle.Scores.ProcessManagers\Kyle.Scores.ProcessManagers.csproj" />
   </ItemGroup>
 
 </Project>

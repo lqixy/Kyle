@@ -1,3 +1,5 @@
+using Kyle.EntityFrameworkExtensions.Events;
+using Kyle.Infrastructure.Events;
 using MediatR;
 
 namespace Kyle.EntityFrameworkExtensions;
@@ -11,5 +13,5 @@ public interface IAggregateRoot: IGeneratesDomainEvents
 
 public interface IGeneratesDomainEvents
 {
-    Queue<IRequest> DomainEvents { get; }
+    Queue<IEventData> DomainEvents { get; }
 }

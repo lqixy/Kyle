@@ -17,10 +17,12 @@ namespace Kyle.Members.Domain
             AddDate = DateTime.Now;
         }
 
-        public UserRegisterRecord(Guid userId, Guid tenantId) : base()
+        public UserRegisterRecord(Guid userId, Guid tenantId) 
         {
             UserId = userId;
             TenantId = tenantId;
+            RecordId = Guid.NewGuid();
+            AddDate = DateTime.Now;
         }
 
         [Key]

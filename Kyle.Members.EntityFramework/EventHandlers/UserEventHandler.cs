@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Kyle.Members.EntityFramework.EventHandlers;
 
-public class UserEventHandler: IRequestHandler<UserRegisteredHaveRecord>
+public class UserEventHandler: INotificationHandler<UserRegistered>
 {
     private readonly IUserRegisterRecordRepository _repository;
 
@@ -13,7 +13,7 @@ public class UserEventHandler: IRequestHandler<UserRegisteredHaveRecord>
         _repository = repository;
     }
 
-    public async Task Handle(UserRegisteredHaveRecord request, CancellationToken cancellationToken)
+    public async Task Handle(UserRegistered request, CancellationToken cancellationToken)
     {
         await _repository.Insert(new UserRegisterRecord(request.UserId,request.TenantId));
     }

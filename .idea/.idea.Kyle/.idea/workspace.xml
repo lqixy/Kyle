@@ -4,6 +4,8 @@
     <projectFile profileName="http">Kyle.AuthServer/Kyle.AuthServer.csproj</projectFile>
     <projectFile profileName="https">Kyle.AuthServer/Kyle.AuthServer.csproj</projectFile>
     <projectFile>Kyle.DIDemo/Kyle.DIDemo.csproj</projectFile>
+    <projectFile profileName="http">Kyle.Demo.CAP/Kyle.Demo.CAP.csproj</projectFile>
+    <projectFile profileName="https">Kyle.Demo.CAP/Kyle.Demo.CAP.csproj</projectFile>
     <projectFile>Kyle.Demo.Events/Kyle.Demo.Events.csproj</projectFile>
     <projectFile>Kyle.Demo.RabbitMQ.Publisher/Kyle.Demo.RabbitMQ.Publisher.csproj</projectFile>
     <projectFile>Kyle.Demo.Secrets/Kyle.Demo.Secrets.csproj</projectFile>
@@ -20,22 +22,82 @@
     <projectFile>Kyle.RedisDemo/Kyle.RedisDemo.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23b9947f-4f70-4836-a362-6358f2a3dbc6" name="Changes" comment="领域事件个性">
+    <list default="true" id="23b9947f-4f70-4836-a362-6358f2a3dbc6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kyle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kyle/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Demo.RabbitMQ.Publisher/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Demo.RabbitMQ.Publisher/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Kyle.DependencyAutofac/AutofacExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.DependencyAutofac/AutofacExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.DependencyServiceCollection/Kyle.DependencyServiceCollection.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.DependencyServiceCollection/Kyle.DependencyServiceCollection.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.DependencyServiceCollection/ServiceCollectionException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.DependencyServiceCollection/ServiceCollectionException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/AggregateRoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/AggregateRoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/IAggregateRoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/IAggregateRoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/Kyle.EntityFrameworkExtensions.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/Kyle.EntityFrameworkExtensions.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/MallDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.EntityFrameworkExtensions/MallDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/AggregateRoot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Bus/EventBus.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Bus/IEventBus.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/EventsExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Handlers/ActionEventHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Handlers/IEventHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/IAggregateRoot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/IEntity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/IEventData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Infrastructure.Events/IEventData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Kyle.Infrastructure.Events.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Kyle.Infrastructure.Events.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Stores/EventStore.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.Events/Stores/IEventStore.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.TestBase/Kyle.Infrastructure.TestBase.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Infrastructure.TestBase/Kyle.Infrastructure.TestBase.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Kyle.Infrastructure.TestBase/TestBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Infrastructure.TestBase/TestBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Mall/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Mall/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Mall/Kyle.Mall.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Mall/Kyle.Mall.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Mall/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Mall/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Mall/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Mall/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.Application.Test/Kyle.Members.Application.Test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Application.Test/Kyle.Members.Application.Test.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.Application.Test/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Application.Test/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.Application/UserAppService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Application/UserAppService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.Domain/Entities/UserInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Domain/Entities/UserInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.Domain/Entities/UserRegisterRecord.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Domain/Entities/UserRegisterRecord.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.Domain/Events/UserRegisteredHaveRecord.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Domain/Events/UserRegistered.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.EntityFramework/EventHandlers/UserEventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.EntityFramework/EventHandlers/UserEventHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.EntityFramework/UserQueryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.EntityFramework/UserQueryRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.Members.Messages/Kyle.Members.Messages.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.Members.Messages/Kyle.Members.Messages.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kyle.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Kyle.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JSON File" />
+      </list>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Kyle.Demo.Events/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Kyle.Infrastructure.Events.Test/TestBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Kyle.Infrastructure.Events.Test/UnitTest1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Kyle.Infrastructure.Events/EventsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Kyle.Infrastructure.RabbitMQExtensions/ApplicationMessageConsumer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Kyle.Scores.Messages/ScoreChangeMessage.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/308c7dd79c6e45d6a79a92ba50fc748daa88/bd/082d9a01/ServiceCollectionServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4472e9d6a19b4c92bcc9a80bd60ca17d26da8/a0/7d4909d7/TestMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4d3501d32b93473c8966a4cac74bb205c3f400/7f/84c9e56c/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4d3501d32b93473c8966a4cac74bb205c3f400/90/b221d83e/AwaitTaskContinuation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4d3501d32b93473c8966a4cac74bb205c3f400/eb/248f4500/AsyncTaskMethodBuilder`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4d3501d32b93473c8966a4cac74bb205c3f400/ee/83b70b48/Task.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5fa071e934c148e3b49d38bd7ccff08a5800/54/f45659df/CapOptionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5fa071e934c148e3b49d38bd7ccff08a5800/e2/a252e4ad/RabbitMQOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9a70be748b254550a3a4c27cc99af01b1a00/54/9ca8c730/ContainerBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b81816a0282044d896afd8e1fea8ea9aec00/2d/06924ce0/DependencyScopeNotConfiguredException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c11a2aa831d04e8eba36f4248c870ea110e00/fb/b8c59aa9/ISender.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc2e8bc7ed10477181af7fbab97ab3a025600/0f/334a5f96/Dispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc2e8bc7ed10477181af7fbab97ab3a025600/10/20ef4018/ServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc2e8bc7ed10477181af7fbab97ab3a025600/63/a4ee42b4/IDataStorage.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc2e8bc7ed10477181af7fbab97ab3a025600/63/b767e007/CapBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc2e8bc7ed10477181af7fbab97ab3a025600/7b/2b2bad1d/CapPublisher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc2e8bc7ed10477181af7fbab97ab3a025600/d3/3d8c32a0/ICapPublisher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc2e8bc7ed10477181af7fbab97ab3a025600/d8/da0ae2d0/Bootstrapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f245cf881f97452cb8c1b0e94d54df4e14690/b7/bf03c758/CallSiteFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6627dc668649fcf591c5d8f92782510f3cbfd8d8cbbbf6162656612ef5701c/ServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ae1fc9fef226561b2c12f5f46d449b903be36ed79f8c2d070eee18575cee/ConnectionFactory.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -70,7 +132,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Project.Kyle.RabbitMQDemo.Consumer">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Kyle.Mall: http">
     <configuration name="Kyle.DIDemo" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -245,6 +307,36 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="Kyle.Demo.CAP: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Kyle.Demo.CAP/Kyle.Demo.CAP.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="http" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Kyle.Demo.CAP: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Kyle.Demo.CAP/Kyle.Demo.CAP.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="Kyle.Gateway: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Kyle.Gateway/Kyle.Gateway.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -304,7 +396,8 @@
       <workItem from="1677978659195" duration="12335000" />
       <workItem from="1678007491624" duration="3539000" />
       <workItem from="1678436412332" duration="1729000" />
-      <workItem from="1678495666196" duration="7247000" />
+      <workItem from="1678495666196" duration="20026000" />
+      <workItem from="1678670574244" duration="15550000" />
     </task>
     <task id="LOCAL-00001" summary="rediskey修改">
       <created>1677676071552</created>
@@ -341,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678504455646</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="TestBase依赖注入个性">
+      <created>1678505689810</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678505689810</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,6 +456,91 @@
     <MESSAGE value="RabbitMQ" />
     <MESSAGE value="使用MediatR" />
     <MESSAGE value="领域事件个性" />
-    <option name="LAST_COMMIT_MESSAGE" value="领域事件个性" />
+    <MESSAGE value="TestBase依赖注入个性" />
+    <option name="LAST_COMMIT_MESSAGE" value="TestBase依赖注入个性" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Kyle.Members.EntityFramework/EventHandlers/UserEventHandler.cs</url>
+          <line>17</line>
+          <properties documentPath="$PROJECT_DIR$/Kyle.Members.EntityFramework/EventHandlers/UserEventHandler.cs" initialLine="17" containingFunctionPresentation="method 'Handle'">
+            <startOffsets>
+              <option value="488" />
+            </startOffsets>
+            <endOffsets>
+              <option value="570" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Kyle.Infrastructure.CAP.Test/UnitTest1.cs</url>
+          <line>12</line>
+          <properties documentPath="$PROJECT_DIR$/Kyle.Infrastructure.CAP.Test/UnitTest1.cs" initialLine="12" containingFunctionPresentation="constructor 'UnitTest1'">
+            <startOffsets>
+              <option value="253" />
+            </startOffsets>
+            <endOffsets>
+              <option value="311" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Kyle.Infrastructure.CAP.Test/UnitTest1.cs</url>
+          <line>18</line>
+          <properties documentPath="$PROJECT_DIR$/Kyle.Infrastructure.CAP.Test/UnitTest1.cs" initialLine="18" containingFunctionPresentation="method 'TestMethod1'">
+            <startOffsets>
+              <option value="389" />
+            </startOffsets>
+            <endOffsets>
+              <option value="447" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Kyle.Members.MessagePublishers/UserMessagePublisher.cs</url>
+          <line>18</line>
+          <properties documentPath="$PROJECT_DIR$/Kyle.Members.MessagePublishers/UserMessagePublisher.cs" initialLine="18" containingFunctionPresentation="method 'Handle'">
+            <startOffsets>
+              <option value="476" />
+            </startOffsets>
+            <endOffsets>
+              <option value="532" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Kyle.Members.MessagePublishers/UserMessagePublisher.cs</url>
+          <line>17</line>
+          <properties documentPath="$PROJECT_DIR$/Kyle.Members.MessagePublishers/UserMessagePublisher.cs" initialLine="17" containingFunctionPresentation="method 'Handle'">
+            <startOffsets>
+              <option value="466" />
+            </startOffsets>
+            <endOffsets>
+              <option value="467" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Kyle.Scores.ProcessManagers/ScoreSubscribeService.cs</url>
+          <line>19</line>
+          <properties documentPath="$PROJECT_DIR$/Kyle.Scores.ProcessManagers/ScoreSubscribeService.cs" initialLine="19" containingFunctionPresentation="method 'ChangeScore'">
+            <startOffsets>
+              <option value="514" />
+            </startOffsets>
+            <endOffsets>
+              <option value="599" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

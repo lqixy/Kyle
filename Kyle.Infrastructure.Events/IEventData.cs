@@ -1,27 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MediatR;
 
-namespace Kyle.Infrastructure.Events
+namespace Kyle.Infrastructure.Events;
+
+public interface IEventData :  INotification
 {
-    public interface IEventData
-    {
-        DateTime EventTime { get; set; }
+    bool IsPublisher { get; set; }
+}
 
-        object EventSource { get; set; }
+public interface IMessage
+{
+    string GetRoutingKey();
+    string GetTypeName();
+}
+
+public abstract class ApplicationMessage : IEventData, IMessage
+{
+    public bool IsPublisher { get; set; } = true;
+
+    public virtual string GetRoutingKey()
+    {
+        return null;
     }
 
-    public class EventData : IEventData
+    public virtual string GetTypeName()
     {
-        public DateTime EventTime { get; set; }
-
-        public object EventSource { get; set; }
-
-        public EventData()
-        {
-            EventTime = DateTime.Now;
-        }
+        return this.GetType().FullName;
     }
+}
+
+public abstract class EventData : IEventData
+{
+    public bool IsPublisher { get; set; } = false;
 }

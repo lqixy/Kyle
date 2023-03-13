@@ -18,7 +18,7 @@ namespace Kyle.Members.EntityFramework
 
         public async Task<UserInfo> Get()
         {
-            return dbSet.FirstOrDefault(x => x.UserId == Guid.Parse("8FCEE2F7-DC47-456B-8686-BE1B58AB9A7E"));
+            return dbSet.FirstOrDefault();
         }
 
         public async Task<UserInfo> Get(Expression<Func<UserInfo, bool>> predicate)

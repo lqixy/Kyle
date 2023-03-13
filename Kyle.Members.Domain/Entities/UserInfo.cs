@@ -39,7 +39,7 @@ namespace Kyle.Members.Domain
 
         public void AddRegisterRecord()
         {
-            ApplyEvent(new UserRegisteredHaveRecord(this.UserId, this.TenantId));
+            ApplyEvent(new UserRegistered(this.UserId, this.TenantId));
         }
 
         // public override string AggregateRootId => $"";
