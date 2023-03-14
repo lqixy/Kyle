@@ -24,5 +24,12 @@ namespace Kyle.Members.Application.Constructs
         public Guid TenantId { get; set; }
 
         public DateTime RegDate { get; set; }
+
+        public string UserName { get; set; }
+        
+        public string Pwd { get; set; }
+
+        public byte? DelStatus { get; set; }
+        
     }
 }

@@ -9,5 +9,7 @@ namespace Kyle.Members.Application.Constructs
     public interface IUserAppService
     {
         Task<UserInfoDto> Get();
+
+        Task<UserInfoDto> Get(Guid userId);
     }
 }

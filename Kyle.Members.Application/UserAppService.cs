@@ -23,5 +23,12 @@ namespace Kyle.Members.Application
             if (entity == null) throw new UserFriendlyException("未找到用户信息");
             return new UserInfoDto(entity.UserId, entity.TenantId, entity.RegDate);
         }
+
+        public async Task<UserInfoDto> Get(Guid userId)
+        {
+            var entity = await repository.Get(userId);
+            if (entity == null) throw new UserFriendlyException("未找到用户信息");
+            return new UserInfoDto();
+        }
     }
 }

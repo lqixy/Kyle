@@ -21,6 +21,11 @@ namespace Kyle.Members.EntityFramework
             return dbSet.FirstOrDefault();
         }
 
+        public async Task<UserInfo> Get(Guid userId)
+        {
+            return await dbSet.FirstOrDefaultAsync(x => x.UserId == userId);
+        }
+
         public async Task<UserInfo> Get(Expression<Func<UserInfo, bool>> predicate)
         {
             return await dbSet.FirstOrDefaultAsync(predicate: predicate);

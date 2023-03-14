@@ -15,4 +15,12 @@ public static class MediatorServiceExtensions
             .Build();
         builder.RegisterMediatR(mediatrConfig);
     }
+
+    public static void AddMediator(this IServiceCollection services)
+    {
+        services.AddMediatR(options =>
+        {
+            options.RegisterServicesFromAssemblies(Extensions.AssemblyExtensions.GetAssemblies());
+        });
+    }
 }

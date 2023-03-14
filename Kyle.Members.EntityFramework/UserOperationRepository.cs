@@ -18,7 +18,6 @@ namespace Kyle.Members.EntityFramework
         public async Task Insert(UserInfo entity)
         {
             await dbSet.AddAsync(entity);
-
             await Context.SaveChangesAsync();
         }
 

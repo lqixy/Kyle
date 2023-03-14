@@ -10,7 +10,9 @@ namespace Kyle.Members.Domain
 {
     public interface IUserQueryRepository
     {
-        Task<UserInfo> Get();
+        Task<UserInfo> Get();        
+        Task<UserInfo> Get(Guid userId);
+
         Task<UserInfo> Get(Expression<Func<UserInfo, bool>> predicate);
     }
 }
